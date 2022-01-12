@@ -1,0 +1,87 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href=" {% static 'Appcsspartimages/Admin/css/bootstrap_min.css' %} ">
+    <link rel="stylesheet" href=" {% static 'Appcsspartimages/Admin/css/AdminFormAdd.css' %} ">
+    <title>Admin : {{headerfilename}}</title>
+</head>
+<body>
+{% if messages %}
+
+{% for mes in messages %}
+    <script>
+        alert("{{mes}}")
+    </script>
+{% endfor %}
+
+{% endif %}
+    
+    <div class="AdminFormNav bg-dark">
+        <div class="container">
+            <div style="margin-top: -8px;" class="row d-flex justify-content-between">
+                <div class="col-sm-7 col  text-light FromHeader"><span class="Admin-span">Admin &nbsp :</span> {{headerfilename}}</div>
+                
+            </div>
+            <div class="fixed_Backbtn">
+                <a href=" {% url 'Admin_dashboard' %} " class="btn btn-light">
+                    <ion-icon style="font-size: 2.5vh;" name="arrow-back-outline">Bk</ion-icon>
+                </a>
+            </div>
+        </div>
+    </div>
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+
+    <!--Code Started  Start-->
+    <section class="Admin_form_code">
+
+
+        <div class="conatiner mt-5">
+            <div class="row d-flex justify-content-around">
+                <div class="col-sm-5 mt-3 alert shadow-lg alert-primary " >
+                    <!--Contaner code field start-->
+                    <div class="container">
+                        <div class="row mb-4 mt-2  d-flex justify-content-around">
+                            <div style="font-size: 3.8vh;" class="col-sm-5 text-center"> {{headerfilename}} </div>
+                        </div>                       
+                     
+                        <form action="" method="post"> 
+                            {% csrf_token %} 
+                            <!--loop part start-->
+                            {% for i in Form_field %}
+                                
+                                    <div class="row mb-4 d-flex  justify-content-around ">
+                                        <label class=" col-sm-4 mb-1   position-realtive" for=""> <span class="Admin_label bold text-secondary"> {{i.label}} &nbsp :&nbsp </span>  </label>
+                                        <div class="col-sm-7 ">
+                                            {{i}}
+                                        </div>
+                                    </div>
+                            {% endfor %}
+                            <!--loop part end -->
+
+                            <div class="row mb-5 d-flex justify-content-around">
+                                <input style="max-width: 60px;" class="btn btn-info" type="reset" value="Reset">
+                                <input style="max-width: 80px;" class="btn btn-danger"  name="AdminStudentSubmit" type="submit" value="Submit">
+                            </div>
+
+                        </form> 
+
+                    </div>
+                    <!--Contaner code field end-->
+                </div>
+            </div>
+        </div>
+
+
+    </section>
+    <!--Code Started  End-->
+
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+</html>

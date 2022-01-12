@@ -1,0 +1,60 @@
+{% extends 'Candidate/CandCheckPostDash.html' %}
+
+
+{% block  content %}
+
+{% load static %}
+
+<a  style="font-size: 3vh;position: absolute;right: 3px;z-index:11;" href=" {% url 'CandCheckPostDash'%} " class=" btn-outline-dark"><ion-icon name="arrow-back-outline">bk</ion-icon></a>
+
+<section id="CampaignBack">
+
+    <div class="continer">
+        {% for image in obj %}
+        <div class="row d-flex justify-content-around">
+                
+                    {% for im in image %}
+                        <div style="padding: 7vh;" class="col-lg-4 d-flex justify-content-around alert  ">
+                            <div style="padding: 2vh;" class="card boder shadow-lg " style="width: 100%;">
+                                <img class="border shadow" style="max-width: 100%;" src="/media/{{im.Image_File}}" alt="">
+                                <div class="card-body">
+                                    <h4 class="card-title">Posted BY</h4>
+                                    <p class="card-text">{{im.CandidateUserId_id}}</p>
+                                    
+                                    <form action="" method="post">
+                                        {% csrf_token %}
+                                        <input type="text" hidden=true name="candidatePostid" value="{{im.id}}" id="">
+                                    
+                                        <input  name="candidatePostSubmit" class="btn btn-outline-info" type="submit" value="Visit Description">
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                
+        </div>
+        {% endfor %}
+    </div>
+
+</section>
+
+
+
+
+
+
+
+
+
+{% if messages %}
+
+{% for mes in messages %}
+    <script>
+        alert("{{mes}}")
+    </script>
+{% endfor %}
+
+{% endif %}
+
+
+{% endblock  %}

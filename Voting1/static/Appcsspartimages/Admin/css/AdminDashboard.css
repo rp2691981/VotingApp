@@ -1,0 +1,82 @@
+.AdminBackGround{
+    background-color: rgba(231, 231, 231, 0.493);
+}
+/* Admin Navigation part should be here start*/
+.AdminNavigation{
+    height: 7vh;
+    z-index: 10;
+    
+}
+
+.Navigationheader{
+    -webkit-text-stroke: .8px rgba(0, 0, 0, 0.493);
+    font-size: 4vh;
+    font-weight: 500;
+    margin-top: -9px;
+
+}
+.AdminList{
+    margin-left: 30px;
+    font-weight: 600;
+    font-size: 3.5vh;
+}
+/* Admin Navigation part should be here end*/
+
+                /*most important start  */
+
+.Admin_body{
+    position: absolute;
+    top: 8vh;
+    max-height: 9000vh;
+    left: 2.5%;
+    width: 95%;    
+    position: relative;
+    overflow: hidden;
+
+}
+            /*most important end*/
+
+
+/*Normal body start */
+/*card*/
+.card{
+    height: 40vh;
+    border-radius: 10px 40% 10px 30%;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+    background-color: white;
+    box-shadow: 2px 2px 4px 2px rgba(0, 0, 0, 0.685);
+}
+.AdminIconBox{
+    width: 100%;
+    height: 60%;
+    background-color: rgba(0, 0, 0, 0.671);
+    display: flex;
+    border-radius: 10px 50% 10px 50%;
+    border: 2px solid black;
+}
+.AdminIconBox ion-icon{
+    font-size: 80px;
+    color: white;
+    margin: auto;
+}
+.AdminCardDetails{
+    width: 80%;
+    height: 30%;
+    margin: auto;
+    border-radius: 10px;
+}
+/*Normal body end */
+
+
+@media only screen and (max-width:770px){
+    /* Admin Navigation part should be here start*/
+    .AdminList{
+        margin-left: 30px;
+        font-weight: 600;
+        font-size: 3vh;
+    }
+    
+    /* Admin Navigation part should be here end*/
+}

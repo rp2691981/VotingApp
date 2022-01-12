@@ -1,0 +1,73 @@
+{% block content  %}
+<!--section should editable start part-->
+<div class="conatiner mt-4 ">
+    
+    <!-- row two start -->
+    <div class="row d-flex justify-content-around">
+
+        <!--Card 1 start-->
+        <div class="col-sm-3 alert d-flex justify-content-around">
+            <div>
+                <div class="card DashboardCard " style="width: 16rem;">
+                    <span><ion-icon name="images-outline"></ion-icon> </span>
+                    <!--card internal part-->
+                    <div class="Dash_card_writing">
+                        <div class="row">
+                            <div class="col-sm-12 text-center">
+                                Check Result
+                            </div>
+                        </div>
+                        
+                        <div class="row d-flex justify-content-around">
+                        
+                        <a  style="max-width: 40%;margin-top: 2px;"  class="col-sm-3  btn btn-danger"> Check </a>
+                        </div>
+                    </div>
+                    
+                </div>  
+                <div class="row "> 
+                    <span class="text-center dash_cardheader" > &nbsp  Check All post.  &nbsp</span>
+                </div>
+            
+            </div>
+        </div>
+        <!--Card 1 end-->
+
+        <!--Card 1 start-->
+        <div class="col-sm-3 alert d-flex justify-content-around">
+            <div>
+                <div class="card DashboardCard " style="width: 16rem;">
+                    <span> <ion-icon name="aperture-outline"></ion-icon> </span>
+                    <!--card internal part-->
+                    <div class="Dash_card_writing">
+                        <div class="row">
+                            <div class="col-sm-12 text-center">
+                                Check Result
+                            </div>
+                        </div>
+                        
+                        <div class="row d-flex justify-content-around">
+                        
+                        <a  style="max-width: 40%;margin-top: 2px;"  class="col-sm-3  btn btn-danger"> Check </a>
+                        </div>
+                    </div>
+                    
+                </div>  
+                <div class="row "> 
+                    <span class="text-center dash_cardheader" > &nbsp Check Own post.  &nbsp</span>
+                </div>
+            
+            </div>
+        </div>
+        <!--Card 1 end-->
+
+    </div>
+    <!-- row two end -->
+
+
+        
+
+    
+</div>
+<!--section should editable end part-->
+{% endblock  %}

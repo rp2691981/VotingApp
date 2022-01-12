@@ -1,0 +1,117 @@
+
+
+{% load static %}
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'Appcsspartimages/student/css/bootstrap_min.css' %} ">
+    <link rel="stylesheet" href=" {% static 'Appcsspartimages/Admin/css/AdminFormAdd.css' %} ">
+    <link rel="stylesheet" href="{% static 'Appcsspartimages/student/css/Stu_complain.css' %} ">
+    <!--for stuProfile-->
+    
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="AdminFormNav bg-dark">
+        <div class="container">
+            <div style="margin-top: -8px;" class="row d-flex justify-content-between">
+                <div class="col-sm-7 col  text-light FromHeader"><span class="Admin-span">Admin &nbsp :</span> {{headerfilename}}</div>
+                
+            </div>
+            <div class="fixed_Backbtn">
+                <a href=" {% url 'AdminComplainView_Back' %} " class="btn btn-light">
+                    <ion-icon style="font-size: 2.5vh;" name="arrow-back-outline">Bk</ion-icon>
+                </a>
+            </div>
+        </div>
+    </div>
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+    
+
+<section style="position: absolute;top: 10vh;width: 100%;">
+
+
+            <div class="container mt-3 ">
+                <div class="row d-flex justify-content-around">
+                    <div class="col-sm-6 shadow-lg alert alert-primary">
+                        <div class="container mt-1 ">
+                            <!--field row -->
+                            <div class="row mb-4">
+                                <div class="col-md-5 text-center stuComplainHeader">Complain Box </div>
+                            </div>
+                            <!--field row end -->
+                            <form action="" method="post">
+                                <!--field row 1-->
+                                <div class=" row  form-group">
+                                    <label class="col-sm-4 text-secondary bold control-label">&nbsp  User Id &nbsp :</label>
+                                    <div class="col-sm-8">
+                                        <input style="font-weight: 600;" type="text" class="form-control mb-3" name="" id="" value="{{obj.ComplainFrom_UserId}}" required=True disabled=True>
+                                    </div>
+                                </div>
+                                <!--field row 1 end -->
+
+                                <!--field row 2-->
+                                <div class=" row  form-group">
+                                    <label class="col-sm-4 text-secondary bold control-label">&nbsp  ComplainFor &nbsp :</label>
+                                    <div class="col-sm-8">
+                                        <input style="font-weight: 600;" type="text" class="form-control mb-3" name="" id="" value=" {{obj.ComplainFor}} " required=True disabled=True >
+                                    </div>
+                                </div>
+                                <!--field row 2 end -->
+
+                                <!--field row 3-->
+                                <div class=" row  form-group">
+                                    <label class="col-sm-4 text-secondary bold control-label">&nbsp  Subject &nbsp :</label>
+                                    <div class="col-sm-8">
+                                        <input style="font-weight: 600;" type="text" class="form-control mb-3" name="" id="" value="{{obj.Subject}}" required=True disabled=True>
+                                    </div>
+                                </div>
+                                <!--field row 3 end -->
+
+                                <!--field row 4-->
+                                <div class=" row  form-group">
+                                    <label class="col-sm-4 text-secondary bold control-label">&nbsp  Description &nbsp :</label>
+                                    <div class="col-sm-8">
+                                        <textarea style="height:20vh; overflow:auto;max-height: 37vh;font-weight: 600;overflow: auto;" type="text" class="form-control mb-3 " disabled=True name="" id=""  required=True>{{obj.Description}}</textarea>
+                                    </div>
+                                </div>
+                                <!--field row 4 end -->
+
+                                <!--field row 4-->
+                                <div class=" row  form-group d-flex justify-content-around">
+                                    
+                                    <a href="mailto:{{obj.UserEmail}}" class="btn btn-info" style="max-width: 80px;">Respond</a>
+                                    
+                                </div>
+                                <!--field row 4 end -->
+
+                                
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+</section>
+
+{% if messages %}
+
+{% for mes in messages %}
+<script>
+alert("{{mes}}")
+</script>
+{% endfor %}
+
+{% endif %}
+
+
+
+</body>
+</html>

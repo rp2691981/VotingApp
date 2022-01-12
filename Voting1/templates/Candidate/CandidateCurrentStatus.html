@@ -1,0 +1,129 @@
+{% extends 'Candidate/CandDashboard.html' %}
+
+
+{% block  content %}
+
+{% load static %}
+
+<!--code start from here start-->
+<section class="current_status mt-4">
+    <div class="container">
+
+         <!--row one Start--> 
+        <div class="row current_status_Graph mb-4  ">
+                
+             <div class="col-sm-6 mb-3  border ">
+                <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
+             </div>  
+             <div class="col-sm-6 " style="background:rgba(255,255,255,0.2);" >
+               
+                <div class="row mt-4">
+                    <div class="col-sm-12 text-center bold">
+                        Current Ranking Check
+                    </div>
+                </div>
+
+                 <!--check candi 1-->
+
+                <div class="row mt-2">
+                    <div class="col-sm-3 col d-flex justify-content-around"><div style="width: 40px;height:20px;background: #b91d47;" ></div></div>
+                    <div class="col-sm-5 col bold_1 "> - cand1 : rank </div>
+                </div>
+
+                 <!--check candi 1 end-->
+
+                  <!--check candi 2 start-->
+                <div class="row mt-2">
+                    <div class="col-sm-3 col d-flex justify-content-around"><div style="width: 40px;height:20px;background: #00aba9;" ></div></div>
+                    <div class="col-sm-5 col bold_1 "> - cand2 : rank </div>
+                </div>
+                <!--check candi 2 end-->
+
+                  <!--check candi 3 start-->
+                <div class="row mt-2 mb-3">
+                    <div class="col-sm-3 col d-flex justify-content-around"><div style="width: 40px;height:20px;background: #2b5797;" ></div></div>
+                    <div class="col-sm-5 col bold_1 "> - cand2 : rank </div>
+                </div>
+                <!--check candi 3 end-->
+
+                 <!--check candi 4 start-->
+                <div class="row mt-2 d-flex justify-content-around">
+                    <div class="col-sm-6 alert text-center"style="background:rgba(255,255,255,0.4);" >
+                        Description..................................
+                        ............................................
+                        ............................................Description
+                    </div>
+                </div>
+                <!--check candi 4 end-->
+             </div>   
+             <!--row one end-->    
+             
+             
+
+        </div>
+
+        <!--row second start-->
+        <div class="row alert-secondary mb-4 mt-3 d-flex justify-content-around">
+          <div class="col-sm-12 text-center  bold"> <span style="border-bottom: 1px solid black;">Final Result &nbsp :-</span> </div>
+          <div class="col-sm-5 mt-4 alert alert-info" ></div>
+        </div>
+        <!--row second end-->
+
+        <!--row third start-->
+        <div class="row  current_status_Graph d-flex justify-content-around mb-4 ">
+            <div class="col-sm-7 alert ">
+                <div class="row">
+                    <div class="col-sm-12 text-center bold">Number of Votes</div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-2 bold">Votes &nbsp :-</div>
+                    <div class="col-sm-12 Cand_Result">
+                            <div class="bold_2" style="background: aqua;width: 10%;height: 100%; text-align: right;border-radius: 0 24px 24px 0;"> 10 %</div>
+                    </div>
+                </div>
+                <div class="row mt-1 ">
+                    <div class="col-sm-12 bold_1 text-danger  ">Number Of Votes in Percentage After Result</div>
+                </div>
+
+                
+            </div>
+         </div>
+        <!--row third end -->
+
+        
+    </div>
+</section>
+<!--code start from here end-->
+
+<script src=" {% static './js/chart.js' %}  "></script>
+
+<script>
+var xValues = ["Cand1", "Cand2", "Cand3"];
+var yValues = [25,25,25];
+var barColors = [
+  "#b91d47",
+  "#00aba9",
+  "#2b5797",
+  "#e8c3b9",
+  "#1e7145"
+];
+
+new Chart("myChart", {
+  type: "doughnut",
+  data: {
+    labels: xValues,
+    datasets: [{
+      backgroundColor: barColors,
+      data: yValues
+    }]
+  },
+  options: {
+    title: {
+      display: true,
+      text: ""
+    }
+  }
+});
+</script>
+
+{% endblock  %}

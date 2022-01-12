@@ -1,0 +1,102 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'Appcsspartimages/Candidate/css/bootstrap_min.css' %}">
+    <link rel="stylesheet" href="{% static 'Appcsspartimages/Candidate/css/CandPost.css' %}">
+    <title>Document</title>
+</head>
+<body class="CandPostBackGround">
+    <div class="container-fluid  ">
+        <div class="row CandPost_title d-flex justify-content-between">
+            <div class="col-sm-2 CandPost_header col  text-center  ">
+                {{header_nav}}
+            </div>
+            <div class="col-sm-2  col d-flex justify-content-end   ">
+                <a href=" {% url 'Cand_dashboard' %} " class="btn bg-light border CandPost_btn " >
+                    <ion-icon name="arrow-back-outline"></ion-icon>
+                </a>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="container position-relative mt-5 ">
+        <div class="row d-flex justify-content-around">
+            <div class="col-sm-6 shadow-lg alert    Candi_bkColor">
+                <div class="container mt-1 ">
+                    <!--field row -->
+                    <div class="row mb-4">
+                        <div class="col-md-5  stuComplainHeader">Post &nbsp :</div>
+                    </div>
+                    <!--field row end -->
+                    <form action="" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <!--field row 1-->
+                        <div class=" row  form-group">
+                            <label class="col-sm-3 bold control-label">&nbsp  User Id &nbsp :</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control mb-3" name="" id="" value="{{request.session.CandidateUserIdpk}}" required=True disabled=true >
+                            </div>
+                        </div>
+                        <!--field row 1 end -->
+
+                         <!--field row 2-->
+                         <div class=" row  form-group">
+                            <label class="col-sm-3 bold control-label">&nbsp Select File &nbsp :</label>
+                            <div class="col-sm-9">
+                                <input type="file" class="form-control mb-3" name="file" id="" required=True placeholder="Name" 
+                            </div>
+                        </div>
+                        <!--field row 2 end -->
+
+                        <!--field row 3-->
+                        <div class=" row  form-group">
+                            <label class="col-sm-3 bold control-label">&nbsp Title &nbsp :</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control mb-3" name="title" id="" required=True placeholder="Ttile" >
+                            </div>
+                        </div>
+                        <!--field row 3 end -->
+
+                        <!--field row 4-->
+                        <div class=" row  form-group">
+                            <label class="col-sm-3 bold control-label">&nbsp Description &nbsp :</label>
+                            <div class="col-sm-9">
+                                <textarea type="text" class="Stu_complain_textarea form-control mb-3" required=True name="description" id="" placeholder="Write under 500 words"></textarea>
+                            </div>
+                        </div>
+                        <!--field row 4 end -->
+
+                        <!--field row 5-->
+                        <div class=" row  d-flex justify-content-around form-group">
+                            <input class="btn btn-info shadow col-sm-3 col" type="Reset" value="Reset">
+                            <input name="candidatePost" class="btn btn-danger shadow col-sm-3 col" type="submit" value="Send">
+                        </div>
+                        <!--field row 5 end -->
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+
+</body>
+</html>
+
+
+                
+
+
+
+

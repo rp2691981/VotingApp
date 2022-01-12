@@ -1,0 +1,136 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'Appcsspartimages/Staff/css/bootstrap_min.css' %}">   
+    <link rel="stylesheet" href="{% static 'Appcsspartimages/Staff/css/staffForm.css' %}">
+    <title>Document</title>
+</head>
+<body class="staffbody">
+    {% if messages %}
+
+    {% for mes in messages %}
+        <script>
+            alert("{{mes}}")
+        </script>
+    {% endfor %}
+    
+    {% endif %}
+
+<div class="Staffprofileheader    mb-5 ">
+    <div class="container-fluid  ">
+        <div class="row CandPost_title d-flex justify-content-between">
+            <div class="col-sm-4 CandPost_header col bold_3  text-center  ">
+                CandidateForm
+            </div>
+            <div class="col-sm-1  col d-flex justify-content-end   ">
+                <a href=" {% url 'home_page' %} " style="display: flex;max-height: 4vh;margin-top: 10px;" class="btn bg-light  " >
+                    <ion-icon  class="text-secondary" style="font-size: 2.5vh;margin-top:-4px" name="arrow-back-outline">Back</ion-icon>
+                </a>
+            </div>
+        </div>
+
+    </div>
+</div>
+<br>
+<br>
+
+<section class="StaffFormbody ">
+    <div class="conatiner">
+        <div class="row  d-flex justify-content-around">
+            <div class="col-sm-5 mt-2 alert alert-info">
+                    <!--form block start-->
+                    <div class="container">
+                        <div class="row mb-5 d-flex justify-content-around">
+                            <div class="col-sm-5 bold1 text-center">
+                                Apply For Election
+                            </div>
+                        </div>
+
+                        <form action="" method="post">
+                            {% csrf_token %}                          
+                                        
+                                <div class="row  mb-3 form-group">
+                                    <label class="col-md-4 label-control"> Enter Name &nbsp :-</label>
+                                    <div class="col-md-8">
+                                       <input type="text" class="form-control"  placeholder="Enter Your Name" name="Name" id="">
+                                    </div>
+                                </div>
+                                
+                                <div class="row  mb-3 form-group">
+                                    <label class="col-md-4 label-control"> PhoneNumber &nbsp :-</label>
+                                    <div class="col-md-8">
+                                       <input type="text" class="form-control"  placeholder="Enter Your Phone Number" name="Phone" id="">
+                                    </div>
+                                </div>
+                                
+                                
+
+                                <div class="row  mb-3 form-group">
+                                    <label class="col-md-4 label-control"> Enter Email &nbsp :-</label>
+                                    <div class="col-md-8">
+                                       <input type="text" class="form-control"  placeholder="Enter Your Email" name="email" id="">
+                                    </div>
+                                </div>
+
+                                <div class="row  mb-3 form-group">
+                                    <label class="col-md-4 label-control"> Select Gender &nbsp :-</label>
+                                    <div class="col-md-8">
+                                       <select name="Gender" class="form-control" id="">
+                                            <option value="Empty" default='true'  >Select Your Gender</option>
+                                            <option value="Male" >Male</option>
+                                            <option value="Female"  >Female</option>
+                                            <option value="Other"  >Other</option>
+
+                                       </select>
+                                    </div>
+                                </div>
+
+
+                                <div class="row  mb-5 form-group">
+                                    <label class="col-md-4 label-control"> Select Stand For &nbsp :-</label>
+                                    <div class="col-md-8">
+                                       <select name="Position" class="form-control" id="">
+                                            <option value="Empty" default='true'  >Select Position</option>
+                                            {% for i,j in position %}
+                                            <option value="{{i}}" >{{j}}</option>
+                                            {% endfor %}
+
+                                       </select>
+                                    </div>
+                                </div>
+
+                                <div class="row  mb-3  d-flex  inline justify-content-around">
+                                    
+                                    <input type="reset" style="max-width:30%;max-height: 5vh;"  class="btn btn-info" value="Reset">
+                                    <input name="ApplicationSubmit" type="submit" style="max-width:35%;max-height: 5vh;"  class="btn btn-danger" value="Sumbit">
+
+                                </div>
+
+
+                        </form>
+                        
+
+
+                    </div>
+                    <!--form block end-->
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+<script src="{% static './js/bootstrap.js' %}"></script>
+
+
+</body>
+</html>

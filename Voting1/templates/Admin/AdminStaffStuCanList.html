@@ -1,0 +1,108 @@
+{% extends 'Admin/AdminStaffDash.html' %}
+{% block content  %}
+
+{% if messages %}
+
+{% for mes in messages %}
+    <script>
+        alert("{{mes}}")
+    </script>
+{% endfor %}
+
+{% endif %}
+
+<style>
+    .fixed_Backbtn{
+        display: none;
+    }
+</style>
+<div class="conatiner">
+    <div class="row mb-4 d-flex justify-content-end ">
+        
+        <div class="col-sm-1 col d-flex justify-content-end">
+            <a  href=" {%  url 'AdminStaffdashboard' %} " class="btn btn-primary">back</a>
+        </div>
+
+    </div>
+    <div class="row  d-flex justify-content-between">
+        <div class="col-sm-3 text-center text-secondary" style="font-size: 3vh;">
+                <u> Added by {{AdimStaffUserid}}</u>
+        </div>
+
+        <!--search for particular student-->
+        <div class="col-sm-5" style="padding: 19px;">                
+            <form class="d-flex ">
+                
+                <input class="form-control me-2" type="search" placeholder="Search ! (Enter User ID) " aria-label="Search">                    
+                <input style="max-width: 60px;border-radius: 10px;"  class=" btn-outline-success" type="submit" value="Search">
+              </form>
+        </div>
+    </div>
+    <div class="row d-flex justify-content-around">
+        <div class="col-md-8 " >
+            <!--table start-->
+            <div class="container mt-3">                
+                
+                <div class="table-responsive">
+                  <table class="table table-bordered">
+                    <thead>
+                        <!--column start -->
+                      <tr class="bg-dark">
+                        
+                        {% for field in ColumnName %}
+                            <th class="text-light text-center " >  {{field}} </th>
+                        {% endfor %}
+                                                  
+                      </tr>
+                      <!--column end -->
+                    </thead>
+                    <tbody>
+
+
+                        <!--table row 1 start                           
+                        <tr>
+                            <td class="text-center text-secondary" >empty</td>
+                            <td  class="text-center text-secondary"> empty </td>
+                            <td  class="text-center text-secondary"> empty </td>
+                            <td class="d-flex justify-content-around"> 
+                                <form action="" method="post" class="d-flex inline"> 
+                                    {% csrf_token %}
+                                    <input type="text" name="" hidden=True placeholder="user id" id="">
+                                    <input type="submit"hidden=True class="btn btn-primary" value="view">    
+                                    <a href="  " class="btn btn-primary">View</a> &nbsp
+                                    <a href=" " class="btn btn-danger">delete</a>
+                                </form>
+                            </td>                                                            
+                        </tr>                            
+                        table row 1 end-->
+
+
+                        <!--loop of data start-->
+                        {% for list in obj  %}
+                            <tr>
+                            <td class="text-center text-secondary"  > {{list.UserId}} </td>
+                            <td  class="text-center text-secondary">{{list.Password}}  </td>
+                            <td  class="text-center text-secondary"> {{list.ProfileAdded}}  </td>
+                            <td class="d-flex justify-content-around"> 
+                                <form action="" method="post"> 
+                                    {% csrf_token %}
+                                    <input type="text" hidden=True name="StudentUserId" value=" {{list.UserId}}"  id="">
+                                    <input type="submit" name="AdminStaffStudentCandidateUserID"  class="btn btn-primary" value="view">    
+                                    <input type="submit" name="AdminStaffStudentCandidateUserIDDelete"  class="btn btn-danger" value="Delete">    
+                                </form>
+                            </td>                                                            
+                        </tr> 
+                            
+                        {% endfor %}
+                        <!--loop of data end-->
+
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            <!--table end-->
+        </div>
+    </div>
+</div>
+
+{% endblock  %}

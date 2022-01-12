@@ -1,0 +1,227 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'Appcsspartimages/Candidate/css/CandDashboard.css' %}">
+    <link rel="stylesheet" href="{% static 'Appcsspartimages/Candidate/css/bootstrap_min.css' %}">
+    <link rel="stylesheet" href="{% static 'Appcsspartimages/Candidate/css/Cand_Profile.css' %}">
+    
+    <link rel="stylesheet" href="{% static 'Appcsspartimages/Candidate/css/CandCurrentStatus.css' %}">
+    
+    <title class="bold">Candidate</title>
+</head>
+<body class="CandiadteBackground">
+    <nav class="navbar navbar-light Candidate_navbar fixed-top">
+        <div class="container-fluid">
+          <div  class="navbar-brand offset-sm-1 bold text-dark" href="#">{{request.session.CandidateUserIdpk}} &nbsp :{{header_nav}}</div>
+          <div class="navbar-toggler bg-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+            <ion-icon name="grid-outline">btn</ion-icon>
+          </div>
+          <div class="offcanvas offcanvas-end  " tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+            <div class="offcanvas-header">
+              <h5 class="offcanvas-title" id="offcanvasNavbarLabel">{{header_nav}}</h5>
+              <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body ">
+              <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                <!--navbar 1-->
+                <li class="nav-item ">
+                  <a class="nav-link Candidate_nav_link" href="{% url 'Cand_dashboard' %}">&nbsp &nbsp  &nbsp <ion-icon style="margin-bottom:-3px" name="grid-outline"></ion-icon> &nbsp Dashboard</a>
+                </li>
+                <!--navbar 1 end-->
+                
+                <!--navbar 2-->
+                <li class="nav-item">
+                  <a class="nav-link Candidate_nav_link" href="{% url 'Cand_profile' %}">&nbsp &nbsp  &nbsp <ion-icon style="margin-bottom:-3px"  name="person-outline"></ion-icon> &nbsp Profile</a>
+                </li>
+                <!--navbar 2 end-->
+
+                <!--navbar 3-->
+                <li class="nav-item ">
+                  <a class="nav-link Candidate_nav_link" href=" {% url 'Cand_post' %} ">&nbsp &nbsp  &nbsp <ion-icon style="margin-bottom:-3px"  name="glasses-outline"></ion-icon> &nbsp Post</a>
+                </li>
+                <!--navbar 3 end-->
+
+                <!--navbar 3-->
+                <li class="nav-item ">
+                  <a class="nav-link Candidate_nav_link" href=" {% url 'Candi_CurrentStatus' %} ">&nbsp  &nbsp  &nbsp <ion-icon style="margin-bottom:-3px"  name="laptop-outline"></ion-icon>&nbsp  CurrentStatus.</a>
+                </li>
+                <!--navbar 3 end-->
+                <!--navbar 4-->
+                <li class="nav-item">
+                    <a  class="nav-link Candidate_nav_link" href="  {% url 'Candlogout' %} ">&nbsp  &nbsp  &nbsp <ion-icon style="margin-bottom: -4px;"  name="log-out-outline"></ion-icon>  &nbsp Log Out</a>
+                  </li>
+                  <!--navbar 4 end-->
+                
+                
+                               
+              </ul>
+ 
+            </div>
+          </div>
+        </div>
+      </nav>
+      <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+      <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+      <script src="{% static './js/bootstrap.js' %}"></script>
+
+
+<section class="candidatebodypart">
+        <div class="container-fluid ">
+            <div class="row">
+                
+                {% block content  %}
+                <!--section should editable start part-->
+                <div class="conatiner mt-4 ">
+                    <!--row one start-->
+                    <div class="row d-flex justify-content-around">
+
+                        <!--Card 1 start-->
+                        <div class="col-sm-3 alert d-flex justify-content-around">
+                            <div>
+                                <div class="card DashboardCard " style="width: 16rem;">
+                                    <span><ion-icon name="glasses-outline"></ion-icon> </span>
+                                    <!--card internal part-->
+                                    <div class="Dash_card_writing">
+                                        <div class="row">
+                                            <div class="col-sm-12 text-center">
+                                                Something to Post !!!
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="row d-flex justify-content-around">
+                                        
+                                        <a href=" {% url 'Cand_post' %} "  style="max-width: 40%;margin-top: 2px;"  class="col-sm-3  btn btn-info"> Click </a>
+                                        </div>
+                                    </div>
+                                    
+                                </div> 
+                                <div class="row "> 
+                                    <span class="text-center dash_cardheader" > &nbsp  Post.  &nbsp</span>
+                                </div>
+                            
+                            </div>
+                        </div>
+                        <!--Card 1 end-->
+
+                        <!--Card 2 start-->
+                        <div class="col-sm-3 alert d-flex justify-content-around">
+                            <div>
+                                <div class="card DashboardCard " style="width: 16rem;">
+                                    <span><ion-icon name="person-outline"></ion-icon></span> 
+                                    <!--card internal part-->
+                                    <div class="Dash_card_writing">
+                                        <div class="row">
+                                            <div class="col-sm-12 text-center">
+                                                Welcome to Profile
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="row d-flex justify-content-around">
+                                        
+                                        <a  style="max-width: 40%;margin-top: 2px;"  class="col-sm-3  btn btn-info"> Visit </a>
+                                        </div>
+                                    </div>
+                                    
+                                </div> 
+                                <div class="row "> 
+                                    <span class="text-center dash_cardheader" > &nbsp  Profile.  &nbsp</span>
+                                </div>
+                            
+                            </div>
+                        </div>
+                        <!--Card 2 end-->
+
+
+
+                        <!--Card 3 start-->
+                        <div class="col-sm-3 alert  d-flex justify-content-around">
+                            <div>
+                                <div class="card DashboardCard " style="width: 16rem;">
+                                    <span> <ion-icon name="laptop-outline"></ion-icon> </span>
+                                    <!--card internal part-->
+                                    <div class="Dash_card_writing">
+                                        <div class="row">
+                                            <div class="col-sm-12 text-center">
+                                                Check Result
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="row d-flex justify-content-around">
+                                        
+                                        <a  style="max-width: 40%;margin-top: 2px;"  class="col-sm-3  btn btn-danger"> Check </a>
+                                        </div>
+                                    </div>
+                                    
+                                </div>  
+                                <div class="row "> 
+                                    <span class="text-center dash_cardheader" > &nbsp  CurrentStatus.  &nbsp</span>
+                                </div>
+                            
+                            </div>
+                        </div>
+                        <!--Card 3 end-->
+
+
+                    </div>
+                    <!--row one end-->
+
+                    <!-- row two start -->
+                    <div class="row d-flex justify-content-around">
+
+                        <!--Card 1 start-->
+                        <div class="col-sm-3 alert d-flex justify-content-around">
+                            <div>
+                                <div class="card DashboardCard " style="width: 16rem;">
+                                    <span> <ion-icon name="laptop-outline"></ion-icon> </span>
+                                    <!--card internal part-->
+                                    <div class="Dash_card_writing">
+                                        <div class="row">
+                                            <div class="col-sm-12 text-center">
+                                                Check Result
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="row d-flex justify-content-around">
+                                        
+                                        <a href="{% url 'CandCheckPostDash' %}"  style="max-width: 40%;margin-top: 2px;"  class="col-sm-3  btn btn-danger"> Check </a>
+                                        </div>
+                                    </div>
+                                    
+                                </div>  
+                                <div class="row "> 
+                                    <span class="text-center dash_cardheader" > &nbsp  Check post.  &nbsp</span>
+                                </div>
+                            
+                            </div>
+                        </div>
+                        <!--Card 1 end-->
+
+                    </div>
+                    <!-- row two end -->
+
+
+                        
+
+                    
+                </div>
+                <!--section should editable end part-->
+                {% endblock  %}
+                
+            </div>
+        </div>
+</section>
+
+{% if messages %}
+        {% for mes in messages %}
+          <script>
+            alert('{{mes}}');
+          </script>
+        {% endfor %}
+{% endif %}
+
+</body>
+</html>

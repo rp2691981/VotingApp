@@ -1,0 +1,35 @@
+.CandPostBackGround{
+    background: rgba(241, 206, 212, 0.151);
+}
+.CandPost_header{
+    font-size: 3.5vh;
+    font-weight: 900;
+}
+.CandPost_title{
+    height: 8vh;
+    background: linear-gradient(to right ,rgba(22, 243, 225, 0.829),rgb(142, 90, 240));
+}
+.CandPost_btn{
+    position: absolute;
+    top: 4px;
+    height: 5vh;
+}
+.CandPost_btn ion-icon{
+    font-size: 3.5vh;
+}
+.stuComplainHeader{
+    font-size: 4vh;
+    font-weight: 700;
+}
+.bold{
+    color: black;
+    font-weight: 600;
+}
+.Stu_complain_textarea{
+    height: 20vh;
+    overflow: auto;
+}
+.Candi_bkColor{
+    border: 0.4px solid rgba(0, 0, 0, 0.26);
+    background:rgba(0, 204, 255, 0.144);
+}

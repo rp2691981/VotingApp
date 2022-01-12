@@ -1,0 +1,92 @@
+.candProfile_header{
+    font-size: 3.6vh;
+    font-weight: 900;
+}
+#profile{
+    position: absolute;
+    width: 98%;
+}
+.CandiColor{
+    background: linear-gradient(to right,rgba(119, 236, 252, 0.9),rgba(231, 176, 231, 0.658));
+    border-bottom-left-radius: 90px;
+    border-bottom-right-radius:90px;
+}
+.bold{
+    font-weight: 500;
+}
+.profile_back{
+    position: relative;
+    height: 20vh;
+    border-radius: 24px;
+    background:url(../images/rock.jpeg);
+    filter: blur(2px);
+    background-position: center;
+    background-size: cover;
+}
+.profile_back_header{
+    position: absolute;
+    top: 12vh;
+}
+.Profile_img_box{
+    width: 125px;
+    height: 130px;
+    background:rgb(255, 255, 255);
+    border: 1px solid black;
+    border-radius: 10px;
+    display: flex;
+}
+.Profile_img_box img{
+    max-width:130px;
+    height: 98%;
+    margin: auto;
+}
+
+.profile_title{
+    font-weight: 900;
+    color: rgba(0, 0, 0, 0.856);
+    -webkit-text-stroke: #fff;
+    font-size: 4vh;
+
+}
+
+.Edit_btn {
+    width: 70px;
+    position: absolute;
+    right: 0;
+    background: rgba(4, 207, 207, 0.692);
+    text-decoration: none;
+    color: blanchedalmond;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+.control-label{
+    font-weight: 500;
+}
+
+/*header style*/
+.Staffprofileheader{
+    position: relative;
+    height: 8vh;
+    background: linear-gradient(to right ,rgba(22, 243, 225, 0.829),rgb(142, 90, 240));
+}
+
+.bold_3{
+    font-size: 3.8vh;
+    font-weight: 800;
+}
+
+
+
+@media only screen and (max-width:770px){
+   
+    .Profile_heading{
+        visibility: hidden;
+    }
+    .profile_back_header{
+        position: absolute;
+        top: 14vh;
+    }
+    .for_space{
+        visibility: hidden;
+    }
+}

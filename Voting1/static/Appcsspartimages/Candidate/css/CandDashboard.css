@@ -1,0 +1,108 @@
+.CandiadteBackground{
+    background: rgba(241, 206, 212, 0.151);
+}
+.Candidate_navbar{
+    background: linear-gradient(to right ,rgba(22, 243, 225, 0.829),rgb(142, 90, 240));
+    height: 8vh;
+    z-index:10 ;
+}
+.Candidate_body{
+    position: absolute;
+}
+.Candidate_nav_link{
+    font-size: 3vh;
+    font-weight: 600;
+}
+.bold{
+    font-weight: 900;
+}
+.candidatebodypart{
+    position: absolute;
+    top: 8.5vh;
+    width: 98%;
+    left: 1%;
+    max-height: 9000vh;
+    overflow: hidden;
+}
+.DashboardCard{
+    position: relative;
+    height: 30vh;
+    background:linear-gradient(rgba(243, 166, 22, 0.438),rgba(90, 172, 240, 0.39));
+    border-radius: 25px;
+    overflow: hidden;
+    box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.514);
+}
+.DashboardCard span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-bottom-left-radius: 140px;
+    border-bottom-right-radius: 140px;
+    background: rgb(3, 164, 192);
+    transition: 0.5s;
+    z-index: 1;
+    position: relative;
+    overflow: hidden;
+}
+.DashboardCard span:before{
+    content: '';
+    position: absolute;
+    top: -90px;
+    left: -20%;
+    width: 150%;
+    height: 100%;
+    background: linear-gradient(to bottom,transparent,rgba(255,255,255,0.5) ) ;
+    filter: blur(5px);
+    transform: rotate(45deg);
+    
+}
+.DashboardCard:hover span  {
+    top: 0;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    width: 100%;
+    height: 60%;
+    
+}
+.DashboardCard span ion-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    font-size: 90px;
+    transition: 0.5s;
+    color: cornsilk;
+}
+.dash_cardheader {
+    font-size: 3vh;
+    font-weight: 700;
+    
+}
+.Dash_card_writing{
+    position: absolute;
+    width: 100%;
+    height: 40%;
+    bottom: 0;
+    background: rgb(233, 206, 177);
+
+}
+
+
+                                        /*FOOTER PART*/
+
+                                        /* END */
+
+@media only screen and (max-width:770px){
+    .header_dashboard{
+        position: fixed;
+        width: 100%;
+        height: 8vh;
+        /*background: rgba(106, 238, 243, 0.712);*/
+        background: linear-gradient(to right ,rgba(22, 243, 225, 0.829),rgba(142, 90, 240, 0.473));
+    }
+    
+   
+}
+

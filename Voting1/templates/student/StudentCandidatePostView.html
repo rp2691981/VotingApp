@@ -1,0 +1,67 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'Appcsspartimages/Candidate/css/bootstrap_min.css' %}">
+    <link rel="stylesheet" href="{% static 'Appcsspartimages/Candidate/css/CandPost.css' %}">
+    <title>Document</title>
+</head>
+<body class="CandPostBackGround">
+    <div class="container-fluid  ">
+        <div class="row CandPost_title d-flex justify-content-between">
+            <div class="col-sm-2 CandPost_header col  text-center  ">
+                {{header_nav}}
+            </div>
+            <div class="col-sm-2  col d-flex justify-content-end   ">
+                <a href=" {% url 'StudentCandCampaign' %} " class="btn bg-light border CandPost_btn " >
+                    <ion-icon name="arrow-back-outline"></ion-icon>
+                </a>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="container position-relative mt-3 ">
+            
+        <div class="row d-flex justify-content-around">
+            <div class="col-lg-8">
+                
+                    <div style="padding: 2vh;" class="card boder shadow-lg " style="width: 100%;">
+                        <img class="border shadow" style="max-width: 100%;max-height: 50vh;" src="/media/{{obj.Image_File}}" alt="">
+                        <div class="card-body">
+                            <h4 class="card-title text-center">Posted By {{obj.CandidateUserId_id}} </h4>
+                            <p style="font-weight: 600;" class="card-text">Subject &nbsp  {{obj.Title}} </p>
+                            
+                            <form action="" method="post">
+                                <label class="label-control" for="">Description</label>
+                                <textarea style="max-height: 15vh;" class="form-control" name="" id="" cols="30" rows="10">
+                                    {{obj.Description}}
+                                </textarea>
+                            </form>
+                        </div>
+                    </div>
+                
+            </div>
+        </div>
+
+    </div>
+    
+
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+
+</body>
+</html>
+
+
+                
+
+
+
+

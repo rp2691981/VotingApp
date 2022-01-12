@@ -1,0 +1,99 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'Appcsspartimages/student/css/bootstrap_min.css' %} ">
+    <link rel="stylesheet" href="{% static 'Appcsspartimages/student/css/Stu_Voting.css' %} ">
+  
+    <title>{{header_nav}}</title>
+</head>
+<body>
+
+    <div class="StuVotingnav">
+        <div class="conatiner">
+            <div class="row">
+                <div class="col-sm-6 offset-sm-1 StuVotingnavheader "> &nbsp &nbsp {{header_nav}}</div>
+                
+            </div>           
+        </div>
+        <a href=" {% url 'stu_Dashboard' %} "   class=" Stunav_bk  btn btn-light text-center">
+            <ion-icon class="text-secondary" style="font-size: 3vh;" name="arrow-back-outline">bk</ion-icon>
+        </a>
+        
+    </div>
+
+
+
+
+    <section id="body_parts">
+
+        <div class="conatiner mt-3 ">
+
+            <div class="row text-secondary">
+                <div style="font-weight: 800;font-size: 3vh;" class="col text-center mb-5">
+                    <span style="border-bottom: .5px solid black;">&nbsp  Only One Time You Can Vote &nbsp</span>
+                </div>                
+            </div>
+
+            {% for key,value in val %}
+            <div class="row text-secondary ">
+                <div style="font-weight: 800;font-size: 3vh;" class="col text-center  mb-3">
+                    <span  style="border-bottom: .5px solid black;">&nbsp  {{key}} &nbsp</span>
+                </div>                
+            </div>
+            <!--row 1 start-->
+            <div class="row mb-5 d-flex justify-content-around">
+                {% for i  in value %}
+                <!--card box Vote  1  start-->
+                    <div class="col-sm-3 mt-3  d-flex justify-content-around  "> 
+                        <div>                      
+                            <div class=" Stu_Vote_Crd mb-3   " style="width: 16rem;">
+                                <span class="Stu_Vote_Crd1">
+                                    <div class="img_box"></div>
+                                </span>
+                                <form class="Stu_Vote_Crd2"  method="post" >
+                                    {% csrf_token %}
+                                    <input type="text" name="position" hidden=true id="" value="{{key}}">
+                                    <input type="text" name="candidateid" hidden=true id="" value="{{i.CandidateUserId}}">
+                                    <input  name="vote" type="submit" class="btn btn-danger" value="Vote">
+                                </form>                    
+                            </div>
+                            <div class="row">
+                                <div style="font-size: 2.5vh; font-weight: 600;" class="text-center text-secondary">Vote for : <span style="font-weight:800;">{{i.CandidateUserId}}</span> </div>
+                            </div>
+                        </div> 
+                    </div>       
+                <!--card box Vote  1  start-->
+                {% endfor %}
+            </div>   
+            {% endfor %} 
+            <!--row 1 End-->
+
+        </div>
+            
+    </section>
+
+
+</div>
+
+    <!--for icons-->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+      <!--End for icons-->
+
+{% if messages %}
+
+{% for mes in messages %}
+    <script>
+        alert("{{mes}}")
+    </script>
+{% endfor %}
+
+{% endif %}
+   
+</body>
+</html>

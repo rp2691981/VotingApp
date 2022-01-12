@@ -1,0 +1,176 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href=" {% static 'Appcsspartimages/Admin/css/bootstrap_min.css' %} ">
+    <link rel="stylesheet" href=" {% static 'Appcsspartimages/Admin/css/AdminFormAdd.css' %} ">
+    <title>Admin : {{headerfilename}}</title>
+</head>
+<body style="background-color: rgba(255, 228, 196, 0.082);">
+{% if messages %}
+
+{% for mes in messages %}
+    <script>
+        alert("{{mes}}")
+    </script>
+{% endfor %}
+
+{% endif %}
+    
+    <div style="z-index: 10;" class="AdminFormNav bg-dark">
+        <div class="container">
+            <div style="margin-top: -8px;" class="row d-flex justify-content-between">
+                <div class="col-sm-7 col  text-light FromHeader"><span class="Admin-span">Admin &nbsp :</span> {{headerfilename}}</div>
+                
+            </div>
+            <div class="fixed_Backbtn">
+                <a href=" {% url 'AdminVotingReportOfpos' %} " class="btn btn-light">
+                    <ion-icon style="font-size: 2.5vh;" name="arrow-back-outline">Bk</ion-icon>
+                </a>
+            </div>
+        </div>
+    </div>
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+
+    <!--Code Started  Start-->
+    <section class="Admin_form_code">
+        <div class="conatiner mt-2">
+            <!--first row-->
+            <div class="row d-flex justify-content-around">
+                    <div style="font-size:3vh;" class="col-sm-2 text-center">
+                        Position
+                    </div>
+            </div>
+            <!--first end row-->
+
+
+            <!--second row-->
+            <div class="row mt-4 d-flex justify-content-around">
+                <div class="col-lg-2 bg-light shadow alert d-flex justify-content-around">
+
+                    <div class="card border shadow  text-white bg-warning mb-3" style="width:15rem">
+                        <div class="card-header text-center"style="font-weight: 900;">TotalStudent</div>
+                        <div class="card-body">
+             
+                        <p class="card-text text-center"style="font-weight: 600;">
+                                Total-Student &nbsp : &nbsp {{totalstu}}
+                              
+                        </p>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="col-lg-2 bg-light shadow alert d-flex justify-content-around">
+
+                    <div class="card border shadow  text-white bg-warning mb-3" style="width:15rem">
+                        <div class="card-header text-center"style="font-weight: 900;">TotalVoters</div>
+                        <div class="card-body">
+             
+                        <p class="card-text text-center"style="font-weight: 600;">
+                                Total-Voted by &nbsp : &nbsp {{totalvoted}}
+                              
+                        </p>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="col-lg-2 bg-light shadow alert d-flex justify-content-around">
+
+                    <div class="card border shadow text-white bg-warning mb-3" style="width:15rem">
+                        <div class="card-header text-center"style="font-weight: 900;">StudentNotVoted</div>
+                        <div class="card-body">
+             
+                        <p class="card-text text-center" style="font-weight: 600;" >
+                                NotVoted &nbsp : &nbsp {{notvoted}}
+                              
+                        </p>
+                        </div>
+                    </div>
+
+                </div>              
+
+
+
+            </div>
+            <!--second end row-->
+
+            <!--Third row-->
+            <div class="row mt-3 mb-1 ">
+                <div style="font-weight:700;" class="col-sm-3 offset-sm-1">
+                    Candidate achieved votes are &nbsp :-
+                </div>
+            </div>
+
+            <!--Third end row-->
+
+            {% for key,value ,per in name %}
+            <!--Candidate row-->
+            <div class="row   d-flex justify-content-around">
+                        <div class="col-sm-10 alert alert-light shadow">
+                            <div class="row ">
+                                <div class="col-md-3 mb-1" style="font-weight:500;">
+                                    &nbsp UserId &nbsp  {{key}}    &nbsp :&nbsp ( {{value}} /  {{totalvoted}})
+                                </div>
+                                <div class="col-sm-9 ">
+                                        <div class="chart_navbar">
+                                            <span style="width:{{per}}%;" class="chart_navbar12" >
+                                                {{per}}% &nbsp      
+                                            </span>
+                                            <span style="position: absolute;right: 0;" >100% &nbsp</span>
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+            </div>
+            <!--Candidate end row-->
+            {% endfor %}
+           
+            
+
+
+
+        </div>
+
+
+       
+
+    </section>
+    <!--Code Started  End-->
+    <script src=" {%  static 'js/chart.js' %} "></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+   <style>
+       .chart_navbar{
+           position: relative;
+           width: 100%;
+           height: 5vh;
+           background-color: rgba(255, 228, 196, 0.322);
+           border: .2px solid rgba(0, 0, 0, 0.397);
+           border-radius:0 20px 20px 0 ;
+       }
+       .chart_navbar12{
+           position: absolute;
+            top:-.6vh;
+           height: 6vh;
+           background-color: rgb(0, 174, 255);
+           border-radius:0 20px 20px 0 ;
+           text-align: end;
+           color:#fff;
+           font-weight: 900;
+           font-size: 3.2vh;
+           z-index: 1;
+       }
+   </style> 
+
+
+</body>
+</html>

@@ -1,0 +1,75 @@
+{% extends 'student/student_home.html' %}
+
+
+{% block  content %}
+
+
+                    <div class="container mt-3 ">
+                        <div class="row d-flex justify-content-around">
+                            <div class="col-sm-6 shadow-lg alert alert-primary">
+                                <div class="container mt-1 ">
+                                    <!--field row -->
+                                    <div class="row mb-4">
+                                        <div class="col-md-5 text-center stuComplainHeader">Complain Box</div>
+                                    </div>
+                                    <!--field row end -->
+                                    <form action="" method="post">
+                                        {% csrf_token %}
+                                        <!--field row 1-->
+                                        
+                                        <!--field row 1 end -->
+
+                                        <!--field row 2-->
+                                        <div class=" row  form-group">
+                                            <label class="col-sm-3 text-secondary bold control-label">&nbsp  ComplainFor &nbsp :</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" class="form-control mb-3" name="ComplainFor" id="" placeholder=" Complain For" required=True >
+                                            </div>
+                                        </div>
+                                        <!--field row 2 end -->
+
+                                        <!--field row 3-->
+                                        <div class=" row  form-group">
+                                            <label class="col-sm-3 text-secondary bold control-label">&nbsp  Subject &nbsp :</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" class="form-control mb-3" name="Subject" id="" placeholder=" Subject" required=True>
+                                            </div>
+                                        </div>
+                                        <!--field row 3 end -->
+
+                                        <!--field row 4-->
+                                        <div class=" row  form-group">
+                                            <label class="col-sm-3 text-secondary bold control-label">&nbsp  Description &nbsp :</label>
+                                            <div class="col-sm-9">
+                                                <textarea style="height:20vh; overflow:auto;max-height: 22vh;" type="text" class="form-control mb-3" name="Description" id="" placeholder=" Description (Under 700 words )" required=True></textarea>
+                                            </div>
+                                        </div>
+                                        <!--field row 4 end -->
+
+                                        <!--field row 4-->
+                                        <div class=" row  form-group d-flex justify-content-around">
+                                            <input style="max-width: 40%;" class="btn btn-danger" type="reset" value="Reset">
+                                            <input style="max-width: 40%;"  name="ComplainSubmit" class="btn btn-info" type="submit" value="Submit">
+                                        </div>
+                                        <!--field row 4 end -->
+
+                                         
+
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+{% if messages %}
+
+{% for mes in messages %}
+    <script>
+        alert("{{mes}}")
+    </script>
+{% endfor %}
+
+{% endif %}
+
+
+{% endblock  %}

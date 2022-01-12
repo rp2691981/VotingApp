@@ -1,0 +1,63 @@
+/*header start*/
+
+.StuVotingnav{
+    width: 100%;
+    height: 8vh ;
+    position: fixed;
+    background: linear-gradient(to right ,rgba(22, 243, 225, 0.829),rgb(142, 90, 240));
+    overflow: hidden;
+    z-index: 10;
+}
+.StuVotingnavheader{
+    font-size: 4vh;
+    font-weight: 700;
+}
+.Stunav_bk{
+    position: fixed;
+    right: 15px;
+    top: 10px;
+}
+#body_parts{
+    position: absolute;
+    top: 9vh;
+    width: 98%;
+    left: 1%;
+    max-height: 9000vh;
+    position: relative;
+    overflow: hidden;   
+}
+
+/*header end*/
+.Stu_Vote_Crd{
+    position: relative;
+    height: 38vh;
+    display: flex;
+    flex-wrap: wrap;
+    box-shadow:  2px 2px 2px 3px black;
+    border-radius:   10px 30% 10px 40%;
+    overflow: hidden;
+}
+.Stu_Vote_Crd1{
+    width: 100%;
+    height: 50%;
+    background: rosybrown;
+    border-radius: 10px 30% 50% 50%;
+    display: flex;
+    
+}
+.img_box{
+    width: 90px;
+    height: 90px;
+    background: snow;
+    margin:auto;
+    border-radius: 50%;
+}
+.Stu_Vote_Crd2{
+    width: 100%;
+    height: 50%;   
+    background:skyblue;
+    border-radius: 30% 50% 10px 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

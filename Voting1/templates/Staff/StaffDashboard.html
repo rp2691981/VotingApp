@@ -1,0 +1,161 @@
+{% load static %}
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'Appcsspartimages/Staff/css/bootstrap_min.css' %}">
+    <link rel="stylesheet" href="{% static 'Appcsspartimages/Staff/css/StaffDashboard.css' %}">    
+    <link rel="stylesheet" href="{% static 'Appcsspartimages/Staff/css/StaffCandidate_student.css' %}">
+    <title>Document</title>
+</head>
+<body class="staffbody">
+    <nav class="navbar navbar-light Staff_navbar fixed-top">
+        <div class="container-fluid ">
+          <div  class="navbar-brand Staff_navbarHeader position-relative offset-sm-1 "  style="color: honeydew;" >Staff :{{header_nav}}</div>
+          <div style="margin-top: -10px;" class="navbar-toggler bg-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+            <ion-icon name="grid-outline">btn</ion-icon>
+          </div>
+          <div class="offcanvas offcanvas-end  " tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+            <div class="offcanvas-header">
+              <h5 class="offcanvas-title" id="offcanvasNavbarLabel"> {{request.session.Staffloginidpk}} {{header_nav}}</h5>
+              <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body ">
+              <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                <!--navbar 1-->
+                <li class="nav-item d-flex justify-content-around">
+                    
+                  <a class="nav-link  bold" href="{% url 'StaffDashboard' %}">Dashboard</a>
+                </li>
+                <!--navbar 1 end-->
+                
+                <!--navbar 2-->
+                <li class="nav-item d-flex justify-content-around">
+                    <a class="nav-link  bold" href=" {% url 'StaffStudentList' %} ">Student List</a>
+                </li>
+                <!--navbar 2 end-->
+
+
+                <!--navbar 3-->
+                <li class="nav-item d-flex justify-content-around">
+                    <a class="nav-link  bold" href=" {% url 'SatffCandidateList' %} ">Candidate List</a>
+                </li>
+                <!--navbar 3 end-->
+                
+                <!--navbar 3-->
+                <li class="nav-item d-flex justify-content-around">
+                  <a class="nav-link  bold" href=" {% url 'StaffProfileDisplay' %} ">Profile</a>
+              </li>
+              <!--navbar 3 end-->
+              <!--navbar 3-->
+              <li class="nav-item d-flex justify-content-around">
+                <a class="nav-link  bold" href=" {% url 'StaffCandCampaign' %} ">Candidate Post</a>
+            </li>
+            <!--navbar 3 end-->
+
+                <!--navbar 4-->
+                <li class="nav-item d-flex justify-content-around">
+                  <a class="nav-link  bold" href=" {% url 'Stafflogout' %} ">LogOut</a>
+              </li>
+              <!--navbar 4 end-->
+              
+              
+               
+                               
+              </ul>
+ 
+            </div>
+          </div>
+        </div>
+      </nav>
+      <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+      <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+      <script src="{% static './js/bootstrap.js' %}"></script>
+      <br>
+      <hr>
+
+
+      <div class="Staffsection mt-3">
+            {% block content %}
+            
+            {% if messages %}
+            {% for mes in messages %}
+              <script>
+                alert('{{mes}}');
+              </script>
+            {% endfor %}
+          {% endif %}
+                <!--section should be editable part start-->
+
+                <div class="container Staffcard1 ">
+                    <div class="row  d-flex justify-content-around ">
+                        <!--one column start-->
+                        <div style="padding:5px;" class="col-sm-3 d-flex justify-content-around mb-4">
+                            
+                            <div class="card shadow-lg border " style="width: 16rem;">
+                                <img src="{% static 'Appcsspartimages/images/student1.jfif' %} " style="max-width: 90%;max-height: 28vh;margin:auto;" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                  <h5 class="card-title">Add Student</h5>
+                                  <p class="card-text">Add Student or voters to vote for candidate.</p>
+                                  <a href="{% url 'StaffStudentAddForm' %}" class="btn btn-danger">Add</a>
+                                  
+                                  <a href="{% url 'StaffStudentList' %}" class="btn btn-danger">CheckList</a>
+                                </div>
+                            </div>
+                              
+                        </div>
+                        <!--one column end-->
+
+                        <!--two column start-->
+                        <div style="padding:5px;" class="col-sm-3 d-flex justify-content-around  mb-4">
+                            
+                            <div class="card shadow-lg border " style="width: 16rem;">
+                                <img src="{% static 'Appcsspartimages/images/candidate.png' %} " style="max-width: 90%;max-height: 28vh;margin:auto;background: white;" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                  <h5 class="card-title">Add Candidate</h5>
+                                  <p class="card-text">Candidate is standing for election.</p>
+                                   
+                                  <a href="{% url 'SatffCandidateAddForm' %}" class="btn btn-danger">Add</a>                                 
+                                  <a href="{% url 'SatffCandidateList' %}" class="btn btn-danger">CandidateList</a>
+                                </div>
+                            </div>
+                              
+                        </div>
+                        <!--two column end-->
+
+                        <!--three column start-->
+                        <div style="padding:5px;" class="col-sm-3 d-flex justify-content-around  mb-4">
+                            
+                          <div class="card shadow-lg border " style="width: 16rem;">
+                              <img src="{% static 'Appcsspartimages/images/gallery.png' %} " style="max-width: 90%;max-height: 28vh;margin:auto;background: white;" class="card-img-top" alt="...">
+                              <div class="card-body">
+                                <h5 class="card-title">Candidate Post</h5>
+                                <p class="card-text">Candidate Post View .</p>
+                                 
+                                                                
+                                <a href="{% url 'StaffCandCampaign' %}" class="btn btn-danger">Post View</a>
+                              </div>
+                          </div>
+                            
+                      </div>
+                      <!--three  column end-->
+                    </div>
+                </div>             
+
+                <!--section should be editable part end-->   
+            {% endblock  %}
+      </div>
+
+ 
+      
+</body>
+</html>
+
+

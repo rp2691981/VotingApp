@@ -1,0 +1,140 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href=" {% static 'Appcsspartimages/Admin/css/bootstrap_min.css' %} ">
+    <link rel="stylesheet" href=" {% static 'Appcsspartimages/Admin/css/AdminDashboard.css' %} ">
+  
+    <title>Admin</title>
+</head>
+<body class="AdminBackGround">
+
+    <nav class="navbar navbar-light AdminNavigation bg-dark fixed-top">
+        <div class="container-fluid">
+          <div  class="navbar-brand offset-sm-1 text-light Navigationheader " href="#"> Admin : {{headerfilename}}</div>
+          <div class="navbar-toggler bg-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+            <ion-icon name="grid-outline">btn</ion-icon>
+          </div>
+          <div class="offcanvas offcanvas-end  " tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+            <div class="offcanvas-header">
+              <h5 class="offcanvas-title Navigationheader"  id="offcanvasNavbarLabel">{{headerfilename}}</h5>
+              <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body ">
+              <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+
+                <!--row 1 start-->
+                <li class="nav-item ">
+                    <a class="nav-link AdminList" href=" {% url 'Admin_dashboard' %} ">&nbsp <ion-icon style="margin-bottom: -4px;" name="home"></ion-icon> &nbsp VoteDashboard</a>
+                  </li>
+                <!--row 1 end--> 
+
+
+
+                
+
+                <!--row 2 start-->
+                <li class="nav-item ">
+                    <a class="nav-link AdminList" href=" ">
+                        &nbsp <ion-icon style="margin-bottom: -4px;" name="book"></ion-icon> &nbsp Check Report
+                    </a>
+                  </li>
+                <!--row 2 end-->
+
+                <!--row 2 start-->
+                <li class="nav-item ">
+                    <a class="nav-link AdminList" href="{% url 'Admin_dashboard' %} ">
+                        &nbsp <ion-icon style="margin-bottom: -4px;" name="chevron-back-outline"></ion-icon> &nbsp BacktoDashboard
+                    </a>
+                  </li>
+                <!--row 2 end-->
+                 
+
+
+
+              </ul>
+ 
+            </div>
+          </div>
+        </div>
+      </nav>
+      <script src="{% static 'js/bootstrap.js' %}"></script>
+
+
+    <div class="Admin_body">
+        {% block content  %}
+        <section class="conatiner">
+            
+
+            <!--card row Two start-->
+
+            <div class="row d-flex justify-content-around">
+                <!--Card Start -->
+                    <!--First card Start-->
+                        <div class="col-sm-3 mt-3  d-flex justify-content-around  ">
+                        
+                            <div class="card  mb-3 border  " style="width: 16rem;">
+                                <span class="AdminIconBox" >
+                                    <ion-icon name="laptop">Icon</ion-icon>
+                                </span>
+                                <div class="AdminCardDetails">
+                                    <div class="row mb-2">
+                                        <div class="control-label  text-center">  <strong> Position </strong> </div>
+                                    </div>
+                                    <div class="row d-flex justify-content-around">
+                                        <a href=" {% url 'AdminVotingPositionList' %} " style="max-width: 60%;" class="btn btn-info">View</a>
+                                    </div>
+                                </div>
+                            </div>
+            
+                        </div>
+                    <!--First Card End-->
+
+                    <!-- Second card Start-->
+                        <div class="col-sm-3 mt-3  d-flex justify-content-around  ">
+        
+                            <div class="card  mb-3 border  " style="width: 16rem;">
+                                <span class="AdminIconBox" >
+                                    <ion-icon name="book">icon</ion-icon>
+                                </span>
+                                <div class="AdminCardDetails">
+                                    <div class="row mb-2">
+                                        <div class="control-label  text-center"> <strong> Latest Report </strong> </div>
+                                    </div>
+                                    <div class="row d-flex justify-content-around">
+                                        <a href=" {% url 'AdminVotingReportOfpos' %} " style="max-width: 60%;" class="btn btn-info">Check</a>
+                                    </div>
+                                </div>
+                            </div>
+            
+                        </div>
+                    <!-- Second Card End-->
+
+                    
+                
+                <!--Card End -->
+            </div>
+            <!--card row Two end-->
+        </section>
+{% if messages %}
+
+    {% for mes in messages %}
+    <script>
+    alert("{{mes}}")
+    </script>
+    {% endfor %}
+
+{% endif %}
+
+        {% endblock  %}
+    </div>
+          
+
+
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

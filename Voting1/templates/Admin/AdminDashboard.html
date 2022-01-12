@@ -1,0 +1,275 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href=" {% static 'Appcsspartimages/Admin/css/bootstrap_min.css' %} ">
+    <link rel="stylesheet" href=" {% static 'Appcsspartimages/Admin/css/AdminDashboard.css' %} ">
+  
+    <title>Admin</title>
+</head>
+<body class="AdminBackGround">
+
+    <nav class="navbar navbar-light AdminNavigation bg-dark fixed-top">
+        <div class="container-fluid">
+          <div  class="navbar-brand offset-sm-1 text-light Navigationheader " href="#"> Admin : {{headerfilename}}</div>
+          <div class="navbar-toggler bg-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+            <ion-icon name="grid-outline">btn</ion-icon>
+          </div>
+          <div class="offcanvas offcanvas-end  " tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+            <div class="offcanvas-header">
+              <h5 class="offcanvas-title Navigationheader"  id="offcanvasNavbarLabel">{{headerfilename}}</h5>
+              <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body ">
+              <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+
+                <!--row 1 start-->
+                <li class="nav-item ">
+                    <a class="nav-link AdminList" href=" {% url 'Admin_dashboard' %} ">&nbsp <ion-icon style="margin-bottom: -4px;" name="home"></ion-icon> &nbsp Dashboard</a>
+                  </li>
+                <!--row 1 end--> 
+
+
+                <!--row 2 start Drop down--> 
+
+                        <li class="nav-item dropdown ">
+                            <a class="nav-link dropdown-toggle AdminList" href="#" id="offcanvasNavbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                &nbsp <ion-icon style="margin-bottom: -4px;" name="person"></ion-icon> &nbsp Student
+                            </a>
+                            <ul class="dropdown-menu " style="overflow: hidden;" aria-labelledby="offcanvasNavbarDropdown">
+                                <li><a style="font-size: 2.5vh;font-weight: 300;" class="dropdown-item AdminList" href=" {% url 'AdminStudentList' %} "><ion-icon style="margin-bottom: -3px;" name="list-circle-outline"></ion-icon> &nbsp  StudentList</a></li>
+                                <li><a style="font-size: 2.5vh;font-weight: 300;" class="dropdown-item AdminList" href=" {% url 'AdminStudentAdd' %}"><ion-icon style="margin-bottom: -3px;" name="person-add-outline"></ion-icon> &nbsp StudentAdd</a></li>
+                                
+                                <!--<li>
+                                <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li>-->
+                            </ul>
+                        </li>
+
+
+                <!--row 2 end-->
+
+                <!--row 3 start drop down--> 
+
+                        <li class="nav-item dropdown ">
+                            <a class="nav-link dropdown-toggle AdminList" href="#" id="offcanvasNavbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                &nbsp  <ion-icon style="margin-bottom: -4px;" name="people-circle"></ion-icon>    &nbsp Staff
+                            </a>
+                            <ul class="dropdown-menu" style="overflow: hidden;" aria-labelledby="offcanvasNavbarDropdown">
+                                <li><a style="font-size: 2.5vh;font-weight: 300;" class="dropdown-item AdminList" href=" {% url 'AdminStaffList' %} "><ion-icon style="margin-bottom: -3px;" name="list-circle-outline"></ion-icon> &nbsp  StaffList</a></li>
+                                <li><a style="font-size: 2.5vh;font-weight: 300;" class="dropdown-item AdminList" href=" {% url 'AdminStaffAdd' %} "><ion-icon style="margin-bottom: -3px;" name="person-add-outline"></ion-icon> &nbsp StaffAdd</a></li>
+                                
+                                <!--<li>
+                                <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li>-->
+                            </ul>
+                        </li>
+                <!--row 3 drop down end-->
+
+                
+                <!--row 4 start drop down--> 
+
+                        <li class="nav-item dropdown ">
+                            <a class="nav-link dropdown-toggle AdminList" href="#" id="offcanvasNavbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                &nbsp  <ion-icon style="margin-bottom: -4px;" name="document"></ion-icon>   &nbsp Application
+                            </a>
+                            <ul class="dropdown-menu"  style="overflow: hidden;" aria-labelledby="offcanvasNavbarDropdown">
+                                <li><a style="font-size: 2.5vh;font-weight: 300;" class="dropdown-item AdminList" href=" {% url 'AdminComplainBox' %} "><ion-icon style="margin-bottom: -3px;" name="chatbox"></ion-icon> &nbsp ViewComplainBox</a></li>
+                                <li><a style="font-size: 2.5vh;font-weight: 300;" class="dropdown-item AdminList" href=" {% url 'AdminApplicationBox' %} "><ion-icon style="margin-bottom: -3px;" name="mail"></ion-icon> &nbsp ViewApplicationCheck</a></li>
+                                
+                                
+                            </ul>
+                        </li>
+                <!--row 4 drop down end-->
+
+                <!--row 5 start drop down--> 
+
+                        <li class="nav-item dropdown ">
+                            <a class="nav-link dropdown-toggle AdminList" href="#" id="offcanvasNavbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                &nbsp  <ion-icon style="margin-bottom: -4px;" name="person-circle"></ion-icon>  &nbsp Candidate
+                            </a>
+                            <ul class="dropdown-menu" style="overflow: hidden;" aria-labelledby="offcanvasNavbarDropdown">
+                                <li><a style="font-size: 2.5vh;font-weight: 300;" class="dropdown-item AdminList" href=" {% url 'AdminCandidateList' %}"><ion-icon style="margin-bottom: -3px;" name="list-circle-outline"></ion-icon> &nbsp  CandidateList</a></li>
+                                <li><a style="font-size: 2.5vh;font-weight: 300;" class="dropdown-item AdminList" href=" {% url 'AdminCandidateAdd' %} "><ion-icon style="margin-bottom: -3px;" name="person-add-outline"></ion-icon> &nbsp CandidateAdd</a></li>
+                                
+                                <!--<li>
+                                <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li>-->
+                            </ul>
+                        </li>
+                <!--row 5 drop down end-->
+
+                <!--row 6 start-->
+                <li class="nav-item ">
+                    <a class="nav-link AdminList" href=" {% url 'AdminCandCampaign' %} ">
+                        &nbsp <ion-icon style="margin-bottom: -4px;" name="images-outline"></ion-icon> &nbsp CandidatePost
+                    </a>
+                  </li>
+                <!--row 6 end-->
+                
+                <!--row 6 start-->
+                <li class="nav-item ">
+                    <a class="nav-link AdminList" href=" {% url 'adminLogout' %} ">
+                        &nbsp <ion-icon style="margin-bottom: -4px;" name="images-outline"></ion-icon> &nbsp logout
+                    </a>
+                  </li>
+                <!--row 6 end-->
+                 
+
+
+
+              </ul>
+ 
+            </div>
+          </div>
+        </div>
+      </nav>
+      <script src="{% static 'js/bootstrap.js' %}"></script>
+
+
+    <div class="Admin_body">
+        {% block content  %}
+        <section class="conatiner">
+            <!--card row one start-->
+            <div class="row d-flex justify-content-around">
+                <!--Card Start -->
+                    <!--First card Start-->
+                        <div class="col-sm-3 mt-3  d-flex justify-content-around  ">
+                        
+                            <div class="card  mb-3 border  " style="width: 16rem;">
+                                <span class="AdminIconBox" >
+                                    <ion-icon name="person">Icon</ion-icon>
+                                </span>
+                                <div class="AdminCardDetails">
+                                    <div class="row mb-2">
+                                        <div class="control-label  text-center">  <strong> Check list of Student </strong> </div>
+                                    </div>
+                                    <div class="row d-flex justify-content-around">
+                                        <a href=" {% url 'AdminStudentList' %} " style="max-width: 60%;" class="btn btn-info">Visit</a>
+                                    </div>
+                                </div>
+                            </div>
+            
+                        </div>
+                    <!--First Card End-->
+
+                    <!-- Second card Start-->
+                        <div class="col-sm-3 mt-3  d-flex justify-content-around  ">
+        
+                            <div class="card  mb-3 border  " style="width: 16rem;">
+                                <span class="AdminIconBox" >
+                                    <ion-icon name="people-circle">Icon</ion-icon>
+                                </span>
+                                <div class="AdminCardDetails">
+                                    <div class="row mb-2">
+                                        <div class="control-label  text-center"> <strong> Check list of staff </strong> </div>
+                                    </div>
+                                    <div class="row d-flex justify-content-around">
+                                        <a href=" {% url 'AdminStaffList' %} " style="max-width: 60%;" class="btn btn-info">Visit</a>
+                                    </div>
+                                </div>
+                            </div>
+            
+                        </div>
+                    <!-- Second Card End-->
+
+                    <!-- Second card Start-->
+                        <div class="col-sm-3 mt-3  d-flex justify-content-around  ">
+            
+                            <div class="card  mb-3 border  " style="width: 16rem;">
+                                <span class="AdminIconBox" >
+                                    <ion-icon name="person-circle">Icon</ion-icon>
+                                </span>
+                                <div class="AdminCardDetails">
+                                    <div class="row mb-2">
+                                        <div class="control-label text-center"> <strong> Visit list Candidate </strong> </div>
+                                    </div>
+                                    <div class="row d-flex justify-content-around">
+                                        <a href=" {% url 'AdminCandidateList' %} " style="max-width: 60%;" class="btn btn-info">Visit</a>
+                                    </div>
+                                </div>
+                            </div>
+            
+                        </div>
+                    <!-- Second Card End-->
+                
+                <!--Card End -->
+            </div>
+            <!--card row one end-->
+
+
+            <!--card row Two start-->
+
+            <div class="row d-flex justify-content-around">
+                <!--Card Start -->
+                    <!--First card Start-->
+                        <div class="col-sm-3 mt-3  d-flex justify-content-around  ">
+                        
+                            <div class="card  mb-3 border  " style="width: 16rem;">
+                                <span class="AdminIconBox" >
+                                    <ion-icon name="laptop">Icon</ion-icon>
+                                </span>
+                                <div class="AdminCardDetails">
+                                    <div class="row mb-2">
+                                        <div class="control-label  text-center">  <strong> Voting </strong> </div>
+                                    </div>
+                                    <div class="row d-flex justify-content-around">
+                                        <a href="{% url 'AdminVoting' %} " style="max-width: 60%;" class="btn btn-info">View</a>
+                                    </div>
+                                </div>
+                            </div>
+            
+                        </div>
+                    <!--First Card End-->
+
+                    <!-- Second card Start-->
+                        <div class="col-sm-3 mt-3  d-flex justify-content-around  ">
+        
+                            <div class="card  mb-3 border  " style="width: 16rem;">
+                                <span class="AdminIconBox" >
+                                    <ion-icon name="add">Icon</ion-icon>
+                                </span>
+                                <div class="AdminCardDetails">
+                                    <div class="row mb-2">
+                                        <div class="control-label  text-center"> <strong> Add Position For Election </strong> </div>
+                                    </div>
+                                    <div class="row d-flex justify-content-around">
+                                        <a href=" {% url 'AdminPositionAdd' %} " style="max-width: 60%;" class="btn btn-info">Check</a>
+                                    </div>
+                                </div>
+                            </div>
+            
+                        </div>
+                    <!-- Second Card End-->
+
+                    
+                
+                <!--Card End -->
+            </div>
+            <!--card row Two end-->
+        </section>
+{% if messages %}
+
+    {% for mes in messages %}
+    <script>
+    alert("{{mes}}")
+    </script>
+    {% endfor %}
+
+{% endif %}
+
+        {% endblock  %}
+    </div>
+          
+
+
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

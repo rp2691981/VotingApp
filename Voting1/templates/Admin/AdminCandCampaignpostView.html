@@ -1,0 +1,44 @@
+
+{% extends 'Admin/AdminCandCampaign.html' %}
+
+{% block content  %}
+<a style="position: absolute;right:10px;top: 2px;z-index: 4;" class="btn btn-secondary" href="{% url 'AdminCandCampaign' %}">
+    <ion-icon name="arrow-back-outline">bk</ion-icon>
+</a>
+
+    <div class="container position-relative  ">
+            
+        <div class="row d-flex justify-content-around">
+            <div class="col-lg-8">
+                
+                    <div style="padding: 2vh;" class="card boder shadow-lg " style="width: 100%;">
+                        <img class="border shadow" style="max-width: 100%;max-height: 50vh;" src="/media/{{obj.Image_File}}" alt="">
+                        <div class="card-body">
+                            <h4 class="card-title text-center">Posted By {{obj.CandidateUserId_id}} </h4>
+                            <p style="font-weight: 400;" class="card-text">Subject &nbsp  {{obj.Title}} </p>
+                            
+                            <form action="" method="post">
+                                <label class="label-control mb-2" for="">Description  :-</label>
+                                <textarea style="max-height: 15vh;"  disabled=true class="form-control " name="" id="" cols="1" rows="10">
+                                    {{obj.Description}}
+                                </textarea>
+                            </form>
+                        </div>
+                    </div>
+                
+            </div>
+        </div>
+
+    </div>
+ 
+
+{% endblock  %}
+
+
+
+
+                
+
+
+
+

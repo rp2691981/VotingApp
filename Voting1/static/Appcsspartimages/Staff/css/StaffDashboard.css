@@ -1,0 +1,36 @@
+.staffbody{
+    background: rgba(224, 224, 224,0.2);
+}
+.Staff_navbar{
+    background: linear-gradient(to right,rgb(57, 179, 209),rgb(154, 120, 248));
+    border: 1px solid rgba(0, 0, 0, 0.507);
+    height: 7vh;
+
+}
+.Staff_navbarHeader{
+    font-weight: 900;
+    margin-top: -10px;
+    -webkit-text-stroke: 1px rgba(0, 0, 0, 0.548);
+    font-size: 4vh;
+    letter-spacing: 1px;
+}
+.Staffsection{
+    position: absolute;
+    width: 98%;
+    left: 1%;
+
+    position: relative;
+ 
+}
+.Staffcard1{
+    width: 100%;
+    position: relative;
+}
+.bold{
+    font-size: 2.5vh;
+    font-weight: 500;
+}
+.bold_1{
+    font-size: 3.8vh;
+    font-weight: 700;
+}

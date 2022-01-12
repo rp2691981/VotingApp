@@ -1,0 +1,48 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.AdminFormNav{
+    position: fixed;
+    width:100%;
+    height: 7vh;
+    overflow: hidden;
+    
+}
+.fixed_Backbtn{
+    position: fixed;
+    z-index: 2;
+    right: 9px;
+    top: 6px;
+}
+.FromHeader{
+    font-size:4.5vh;
+    font-weight: 700;
+}
+.Admin_form_code{
+    position: absolute;
+    top: 7.5vh;
+    width: 98%;
+    max-height: 1000vh;
+    left: 1%;
+    
+    overflow: hidden;
+
+}
+.Admin_label{
+    position:relative;
+    left: 30%;
+}
+.bold{
+    font-size: 2.5vh;
+    font-weight: 500;
+}
+@media only screen and (max-width:770px){
+    .Admin-span{
+        display:none;
+    }
+    .Admin_label{
+        position: relative;
+        left: 3%;
+    }
+}

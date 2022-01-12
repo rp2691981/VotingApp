@@ -1,0 +1,17 @@
+.StuProfile{
+    background: url(../images/rock.jpeg);
+    background-size: cover;
+    position:relative;
+    display: flex;
+    justify-content: center;
+    
+}
+.StuProfileheader{
+    position: absolute;
+    width: 80%;
+    bottom: -40px;
+    
+}
+@media only screen and (max-width:770px){
+
+}

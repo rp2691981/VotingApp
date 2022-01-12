@@ -1,0 +1,11 @@
+.stuComplainHeader{
+    font-size: 4vh;
+    font-weight: 700;
+}
+.bold{
+    font-weight: 600;
+}
+.Stu_complain_textarea{
+    height: 20vh;
+    overflow: auto;
+}

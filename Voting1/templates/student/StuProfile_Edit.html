@@ -1,0 +1,116 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'Appcsspartimages/Staff/css/bootstrap_min.css' %}">   
+    <link rel="stylesheet" href="{% static 'Appcsspartimages/Staff/css/staffForm.css' %}">
+    <title>Document</title>
+</head>
+<body class="staffbody">
+
+
+<div class="Staffprofileheader    mb-5 ">
+    <div class="container-fluid  ">
+        <div class="row CandPost_title d-flex justify-content-between">
+            <div class="col-sm-2 CandPost_header col bold_3  text-center  ">
+                {{headername}}
+            </div>
+            <div class="col-sm-1  col d-flex justify-content-end   ">
+                <a href=" {% url 'stu_Profile' %} " style="display: flex;max-height: 4vh;margin-top: 10px;" class="btn bg-light  " >
+                    <ion-icon  class="text-secondary" style="font-size: 2.5vh;margin-top:-4px" name="arrow-back-outline">Back</ion-icon>
+                </a>
+            </div>
+        </div>
+
+    </div>
+</div>
+<br>
+<br>
+
+<section class="StaffFormbody ">
+    <div class="conatiner">
+        <div class="row  d-flex justify-content-around">
+            <div class="col-sm-5 mt-2 alert alert-info">
+                    <!--form block start-->
+                    <div class="container">
+                        <div class="row mb-3 d-flex justify-content-around">
+                            <div class="col-sm-5 bold1 text-center">
+                                {{headername}}
+                            </div>
+                        </div>
+
+                        <form action="" method="post">
+                            {% csrf_token %}
+                            <!--Field 1 start-->
+                            {% for key,val  in data %}
+                                
+                                        {% if key != 'Profile' %}    
+                                            {% if key != 'UserId_id' %}
+                                                <div class="row  mb-3 form-group">
+                                                    <label class="col-md-4 label-control"> {{key}} &nbsp :-</label>
+                                                    <div class="col-md-8">
+                                                    <input type="text" name='{{key}}' value="{{val}}" class="form-control" name="" id="">
+                                                    </div>
+                                                </div>
+                                            {% else %}
+                                                <label hidden=True class="col-md-4 label-control"> {{key}} &nbsp :-</label>                                            
+                                                <input hidden=True type="text" name='{{key}}' value="{{val}}" class="form-control" name="" id="">
+                                            {% endif %}
+                                        {% else %}
+                                        
+                                        
+                                            <label hidden=True class="col-md-4 label-control"> {{key}} &nbsp :-</label>
+                                            
+                                            <input hidden=True type="text" name='{{key}}' value="{{val}}" class="form-control" name="" id="">
+                                         
+
+                                        {% endif %} 
+
+
+                            {% endfor %}
+                            <!--Field 1 end-->
+
+                           
+
+                            
+                            <!--Field 5 start-->
+                                <div class="row  mb-3  d-flex justify-content-around">
+                                    <input name="StudentProfileSubmit" style="max-width: 30%;" class="btn btn-primary"  type="submit" value="Submit">
+
+                                </div>
+                            <!--Field 5 end-->
+
+                        </form>
+                        
+
+
+                    </div>
+                    <!--form block end-->
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+<script src="{% static './js/bootstrap.js' %}"></script>
+{% if messages %}
+
+{% for mes in messages %}
+    <script>
+        alert("{{mes}}")
+    </script>
+{% endfor %}
+
+{% endif %}
+
+</body>
+</html>

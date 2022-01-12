@@ -1,0 +1,29 @@
+{% extends 'Candidate/CandDashboard.html' %}
+
+
+{% block  content %}
+<style>
+    #CampaignBack{
+        width: 100%;
+        min-height: 90vh;
+        max-height: 40000vh;
+      
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+</style>
+
+{% if messages %}
+{% for mes in messages %}
+<script>
+    alert('{{mes}}');
+</script>
+{% endfor %}
+{% endif %}
+ 
+
+
+
+
+{% endblock  %}

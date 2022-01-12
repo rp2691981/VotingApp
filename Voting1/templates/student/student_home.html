@@ -1,0 +1,279 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'Appcsspartimages/student/css/bootstrap_min.css' %} ">
+    <link rel="stylesheet" href="{% static 'Appcsspartimages/student/css/stu_dashboard.css' %} ">
+    <link rel="stylesheet" href="{% static 'Appcsspartimages/student/css/Stu_complain.css' %} ">
+    <link rel="stylesheet" href="{% static 'Appcsspartimages/student/css/Student_CandCampaign.css' %} ">
+    <!--for stuProfile-->
+    <link rel="stylesheet" href=" {% static 'Appcsspartimages/student/css/Stu_profile.css' %}  ">
+    <title>Document</title>
+</head>
+<body>
+
+<!--Navigation parts start-->
+<nav class="navbar navbar-light StudentNavigation  fixed-top">
+    <div class="container-fluid">
+      <div  class="navbar-brand offset-sm-1 text-secondary StudentNavigationheader " style="margin-top: -7px;" href="#"> &nbsp {{header_nav}}</div>
+      <div style="margin-top: -7px;"  class="navbar-toggler bg-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+        <ion-icon name="grid-outline">btn</ion-icon>
+      </div>
+      <div class="offcanvas offcanvas-end  " tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title Navigationheader"  id="offcanvasNavbarLabel">{{request.session.StudentUserIdpk}} {{header_nav}}</h5>
+          <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body ">
+          <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+
+            <!--row 1 start-->
+            <li class="nav-item ">
+                <a class="nav-link stuList" href=" {% url 'stu_Dashboard' %} ">&nbsp <ion-icon style="margin-bottom: -4px;" name="home"></ion-icon> &nbsp Dashboard</a>
+              </li>
+            <!--row 1 end-->   
+
+            <!--row 2 start-->
+            <li class="nav-item ">
+                <a class="nav-link stuList" href=" {% url 'stu_Profile' %} ">&nbsp <ion-icon style="margin-bottom: -4px;" name="person-outline" ></ion-icon> &nbsp Profile</a>
+            </li>
+            <!--row 2 end--> 
+
+            <!--row 3 start-->
+            <li class="nav-item ">
+                <a class="nav-link stuList" href=" {% url 'StudentCandCampaign' %}">&nbsp <ion-icon style="margin-bottom: -4px;" name="glasses-outline"></ion-icon> &nbsp Promotion</a>
+            </li>
+            <!--row 3 end--> 
+
+            <!--row 4 start-->
+            <li class="nav-item ">
+                <a class="nav-link stuList" href=" {% url 'Stu_Voting' %} ">&nbsp <ion-icon style="margin-bottom: -4px;" name="alert-circle-outline"></ion-icon> &nbsp Voting</a>
+            </li>
+            <!--row 4 end--> 
+
+            <!--row 5 start-->
+            <li class="nav-item ">
+                <a class="nav-link stuList" href=" {% url 'Stu_complain' %} ">&nbsp <ion-icon style="margin-bottom: -4px;" name="help-outline"></ion-icon> &nbsp Complain</a>
+            </li>
+            <!--row 5 end-->
+
+            <!--row 6 start-->
+            <li class="nav-item ">
+                <a class="nav-link stuList" href="  {% url 'StudentLogOut' %} ">&nbsp <ion-icon style="margin-bottom: -4px;"  name="log-out-outline"></ion-icon>  &nbsp Log Out</a>
+            </li>
+            <!--row 6 end-->
+            <!--row 7 start-->
+            <li class="nav-item ">
+                <a class="nav-link stuList" href=" {% url 'contact_us' %} ">&nbsp <ion-icon style="margin-bottom: -4px;" name="call-outline"></ion-icon> &nbsp Contact us</a>
+            </li>
+            <!--row 7 end-->
+            
+
+          </ul>
+
+        </div>
+      </div>
+    </div>
+  </nav>
+  <script src="{% static 'js/bootstrap.js' %}"></script>
+
+    
+    
+    
+
+        
+<!--Navigation parts end-->
+                                  
+                                  
+                                    <!--editable parts-->
+
+     
+
+<section id="body_parts">
+    
+
+    {% block content %}
+
+        <div class="container mt-2">
+
+            <!--row one start--> 
+            <div class="row d-flex justify-content-around ">      
+                <!--card start 1-->         
+                <div class="col-md-3  d-flex justify-content-around   alert ">
+                    <div>
+                        
+                        <div class="card DashboardCard " style="width: 15rem;">
+                            <span><ion-icon name="person-outline"></ion-icon></span> 
+                            
+                            <div class="Dash_card_writing">
+                                <div class="row">
+                                    <div class="col-sm-12 text-center">
+                                        Visit to Profile
+                                    </div>
+                                </div>
+                                
+                                <div class="row d-flex justify-content-around">
+                                    <a href=" {% url 'stu_Profile' %} "  style="max-width: 60%;margin-top: 2px;"  class="col-sm-3 btn btn-danger">Click!</a>
+                                </div>
+                            </div>
+                            
+                        </div> 
+                        <div class="text-center dash_cardheader"> 
+                            <span>&nbsp Profile &nbsp</span>
+                        </div>
+                    </div>
+                </div> 
+                <!--card end 1-->
+                
+                <!--card start 2-->         
+                <div class="col-md-3  d-flex justify-content-around   alert ">
+                    <div>
+                        
+                        <div class="card DashboardCard " style="width: 15rem;">
+                            <span><ion-icon  name="glasses-outline"></ion-icon></span> 
+                            
+                            <div class="Dash_card_writing">
+                                <div class="row">
+                                    <div class="col-sm-12 text-center">
+                                        Visit Promotion
+                                    </div>
+                                </div>
+                                
+                                <div class="row d-flex justify-content-around">
+                                    <a  style="max-width: 60%;margin-top: 2px;"  class="col-sm-3 btn btn-info">Visit!</a>
+                                </div>
+                            </div>
+                            
+                        </div> 
+                        <div class="text-center dash_cardheader"> 
+                            <span>&nbsp Promotion &nbsp</span>
+                        </div>
+                    </div>
+                </div> 
+                <!--card end 2-->
+
+                <!--card start 3-->         
+                <div class="col-md-3  d-flex justify-content-around   alert ">
+                    <div>
+                        
+                        <div class="card DashboardCard " style="width: 15rem;">
+                            <span><ion-icon name="alert-circle-outline"></ion-icon></span> 
+                            
+                            <div class="Dash_card_writing">
+                                <div class="row">
+                                    <div class="col-sm-12 text-center">
+                                        Voting
+                                    </div>
+                                </div>
+                                
+                                <div class="row d-flex justify-content-around">
+                                    <a href="{% url 'Stu_Voting' %}"  style="max-width: 60%;margin-top: 2px;"  class="col-sm-3 btn btn-danger">Vote!</a>
+                                </div>
+                            </div>
+                            
+                        </div> 
+                        <div class="text-center dash_cardheader"> 
+                            <span>&nbsp Voting &nbsp</span>
+                        </div>
+                    </div>
+                </div> 
+                <!--card end 3-->
+            </div> 
+            <!--row one end-->  
+
+
+
+
+
+            <!--row Two start--> 
+            <div class="row d-flex justify-content-around ">      
+                <!--card start 1-->         
+                <div class="col-md-3  d-flex justify-content-around   alert ">
+                    <div>
+                        
+                        <div class="card DashboardCard " style="width: 15rem;">
+                            <span><ion-icon  name="help-outline"></ion-icon></span> 
+                            
+                            <div class="Dash_card_writing">
+                                <div class="row">
+                                    <div class="col-sm-12 text-center">
+                                        Complain
+                                    </div>
+                                </div>
+                                
+                                <div class="row d-flex justify-content-around">
+                                    <a href=" {% url 'Stu_complain' %} " style="max-width: 60%;margin-top: 2px;"  class="col-sm-3 btn btn-danger">Add!</a>
+                                </div>
+                            </div>
+                            
+                        </div> 
+                        <div class="text-center dash_cardheader"> 
+                            <span> &nbsp Complain &nbsp</span>
+                        </div>
+                    </div>
+                </div> 
+                <!--card end 1-->
+                
+                <!--card start 2-->         
+                <div class="col-md-3  d-flex justify-content-around   alert ">
+                    <div>
+                        
+                        <div class="card DashboardCard " style="width: 15rem;">
+                            <span><ion-icon  name="call-outline"></ion-icon></span> 
+                            
+                            <div class="Dash_card_writing">
+                                <div class="row">
+                                    <div class="col-sm-12 text-center">
+                                        Any problem arise in Server
+                                    </div>
+                                </div>
+                                
+                                <div class="row d-flex justify-content-around">
+                                    <a href=" {% url 'contact_us' %} "  style="max-width: 60%;margin-top: 2px;"  class="col-sm-5  btn btn-danger">Complain!</a>
+                                </div>
+                            </div>
+                            
+                        </div> 
+                        <div class="text-center dash_cardheader"> 
+                            <span> &nbsp Contact Us &nbsp</span>
+                        </div>
+                    </div>
+                </div> 
+                <!--card end 2-->
+
+                
+            </div> 
+            <!--row Two end-->
+            
+            
+       </div>
+       {% if messages %}
+       {% for mes in messages %}
+       <script>
+           alert('{{mes}}');
+       </script>
+       {% endfor %}
+   {% endif %}
+        
+
+    {% endblock %}      
+
+</section>
+
+        
+
+    
+    
+    <!--for icons-->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+      <!--End for icons-->
+
+     
+   
+</body>
+</html>

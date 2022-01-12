@@ -1,0 +1,73 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href=" {% static 'Appcsspartimages/Admin/css/bootstrap_min.css' %} ">
+    <link rel="stylesheet" href=" {% static 'Appcsspartimages/Admin/css/AdminCandCampaign.css' %} ">
+  
+    <title>Admin</title>
+</head>
+<body class="AdminCandCampaign">
+
+    <section class="CandNav bg-dark">
+        <div style="font-size:3.5vh;position:absolute;left: 4vh;top: 2px;font-weight: 600;" class="header text-light">{{header_nav}} </div>
+        <a style="position: absolute;right: 5px;top: 5px;" href="{% url 'Admin_dashboard' %}" class="btn  btn-outline-light" >back</a>
+    </section>
+
+    
+
+
+<div class="Postblock">
+        {% block content  %}
+                
+                <div class="continer">
+                    {% for image in obj %}
+                    <div class="row d-flex justify-content-around">
+                            
+                                {% for im in image %}
+                                    <div style="padding: 7vh;" class="col-lg-4 d-flex justify-content-around alert  ">
+                                        <div style="padding: 2vh;" class="card boder shadow-lg " style="width: 100%;">
+                                            <img class="border shadow" style="max-width: 100%;" src="/media/{{im.Image_File}}" alt="">
+                                            <div class="card-body">
+                                                <h4 class="card-title">Posted BY</h4>
+                                                <p class="card-text">{{im.CandidateUserId_id}}</p>
+                                                
+                                                <form action="" method="post">
+                                                    {% csrf_token %}
+                                                    <input type="text" hidden=true name="candidatePostid" value="{{im.id}}" id="">
+                                                
+                                                    <input  name="candidatePostSubmit" class="btn btn-outline-info" type="submit" value="Visit Description">
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            
+                    </div>
+                    {% endfor %}
+                </div>
+
+
+                {% if messages %}
+
+                {% for mes in messages %}
+                <script>
+                alert("{{mes}}")
+                </script>
+                    {% endfor %}
+                
+                {% endif %}
+
+        {% endblock  %}
+</div>
+    
+          
+
+
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

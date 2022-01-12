@@ -1,0 +1,12 @@
+#CampaignBack{
+    width: 100%;
+    min-height: 90vh;
+    max-height: 40000vh;
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+

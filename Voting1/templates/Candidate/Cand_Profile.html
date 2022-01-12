@@ -1,0 +1,84 @@
+{% extends 'Candidate/CandDashboard.html' %}
+
+
+{% block  content %}
+
+<div class="container">
+    <div class="row mb-5">
+        <div style="height: 20vh;" class="col-md-12 alert alert-info StuProfile  ">
+            <a style="max-height: 5vh;max-width: 60px;position: absolute;right:15px;top: 10px;" class="btn btn-light shadow" href="{% url 'CandidateProfile_Edit' %} ">EDIT</a>
+            <div class="StuProfileheader">
+                    <div class="row d-flex justify-content-around  ">
+                            <div class="col-md-4 alert alert-danger ">
+                                <div class="row  text-center">
+                                        
+                                    <span style="font-size: 4.5vh;">UserId &nbsp :-{{data.UserId_id }}</span>
+                                        
+                                </div>
+                               
+                            </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row  ">
+        <label class="col-md-2 offset-md-2 control-label ">UserId &nbsp :</label>
+        <div class="col-md-6  mb-3">
+            <input type="text" class="form-control" id="focusedinput" disabled='True' value=" {{data.UserId_id }}" >
+        </div>
+    </div>
+
+    <div class="row  ">
+        <label class="col-md-2 offset-md-2 control-label ">StudentName &nbsp :</label>
+        <div class="col-md-6  mb-3">
+            <input type="text" class="form-control" id="focusedinput" disabled='True' value=" {{data.Name }}" >
+        </div>
+    </div>
+
+    <div class="row  ">
+        <label class="col-md-2 offset-md-2 control-label ">StudentPhone &nbsp :</label>
+        <div class="col-md-6  mb-3">
+            <input type="text" class="form-control" id="focusedinput" disabled='True' value=" {{data.Phone }}" >
+        </div>
+    </div>
+
+    <div class="row  ">
+        <label class="col-md-2 offset-md-2 control-label ">AlternateNumber &nbsp :</label>
+        <div class="col-md-6  mb-3">
+            <input type="text" class="form-control" id="focusedinput" disabled='True' value=" {{data.AlternateNumber }}" >
+        </div>
+    </div>
+
+
+    <div class="row  ">
+        <label class="col-md-2 offset-md-2 control-label ">StudentEmail &nbsp :</label>
+        <div class="col-md-6  mb-3">
+            <input type="text" class="form-control" id="focusedinput" disabled='True' value=" {{data.Email }}" >
+        </div>
+    </div>
+
+    <div class="row  ">
+        <label class="col-md-2 offset-md-2 control-label ">Gender &nbsp :</label>
+        <div class="col-md-6  mb-3">
+            <input type="text" class="form-control" id="focusedinput" disabled='True' value=" {{data.Gender }}" >
+        </div>
+    </div>
+
+    
+
+</div>
+
+{% if messages %}
+{% for mes in messages %}
+<script>
+    alert('{{mes}}');
+</script>
+{% endfor %}
+{% endif %}
+ 
+
+
+
+
+{% endblock  %}

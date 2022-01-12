@@ -1,0 +1,107 @@
+{% extends 'Admin/AdminDashboard.html' %}
+{% block content  %}
+
+{% if messages %}
+
+{% for mes in messages %}
+    <script>
+        alert("{{mes}}")
+    </script>
+{% endfor %}
+
+{% endif %}
+
+<div class="conatiner">
+    <div class="row mb-4 d-flex justify-content-end ">
+        
+        <div class="col-sm-1 col d-flex justify-content-end">
+            <a  href=" {%  url 'Admin_dashboard' %} " class="btn btn-light">back</a>
+        </div>
+
+    </div>
+    <div class="row  d-flex justify-content-between">
+        <div class="col-sm-3  text-secondary "> <strong style="font-size: 3vh;">{{headerfilename}}: receive</strong> </div>
+        
+        <!--search for particular student-->
+        <div class="col-sm-5" style="padding: 19px;">                
+            <form class="d-flex ">                
+                <input class="form-control me-2" type="search" placeholder="Search ! (Enter User ID) " aria-label="Search">                    
+                <input style="max-width: 60px;border-radius: 10px;"  class=" btn-outline-success" type="submit" value="Search">
+            </form>
+        </div>
+        
+    </div>
+    <div class="row d-flex justify-content-around">
+        <div class="col-md-8 " >
+            <!--table start-->
+            <div class="container mt-3">                
+                
+                <div class="table-responsive">
+                  <table class="table table-bordered">
+                    <thead>
+                        <!--column start -->
+                      <tr class="bg-dark">
+                        {% for column in ColumnName %}
+                            <th class="text-light text-center "> {{column}} </th>
+                        {% endfor %}
+                        
+                                                  
+                      </tr>
+                      <!--column end -->
+                    </thead>
+                    <tbody>
+
+
+                        <!--table row 1 start                        
+                        <tr>
+                            <td class="text-center text-secondary" >0</td>
+                            <td  class="text-center text-secondary"> empty </td>
+                            <td  class="text-center text-secondary"> empty </td>
+                            <td class="d-flex justify-content-around"> 
+                                <form action="" method="post" class="d-flex inline"> 
+                                    {% csrf_token %}
+                                    <input type="text" name="" hidden=True placeholder="user id" id="">
+                                    <input type="submit"hidden=True class="btn btn-primary" value="view">    
+                                    <a href="  " class="btn btn-primary">View</a> &nbsp
+                                    <a href=" " class="btn btn-danger">delete</a>
+                                </form>
+                            </td>                                                            
+                        </tr>                            
+                        table row 1 end-->
+
+
+                        <!--loop of data start-->
+                        {% for list in List_Of_All_Student  %}
+                            <tr>
+                            <td class="text-center text-secondary"  >{{list.id}}</td>
+                            <td  class="text-center text-secondary">{{list.ComplainFrom_UserId}}  </td>
+                            <td  class="text-center text-secondary"> {{list.ComplainFor}}  </td>
+                            
+                            <td  class="text-center text-secondary">
+                                <a class="btn btn-info" href="mailto:{{list.UserEmail}}"> Respond </a>    
+                            </td>
+                            <td class="d-flex justify-content-around"> 
+                                <form action="" method="post" class="d-flex inline"> 
+                                    {% csrf_token %}
+                                    <input type="text" hidden=True name="ComplainPKId" value="{{list.id}}"  id="">
+                                    <input type="submit" name="ComplainView"   class="btn btn-primary" value="View">
+                                    &nbsp
+                                    <input type="submit" name="ComplainDlete"    class="btn btn-danger" value="Delete">    
+                                    
+                                </form>
+                            </td>                                                            
+                        </tr> 
+                            
+                        {% endfor %}
+                        <!--loop of data end-->
+
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            <!--table end-->
+        </div>
+    </div>
+</div>
+
+{% endblock  %}

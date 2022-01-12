@@ -1,0 +1,70 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.AdminFormNav{
+    position: fixed;
+    width:100%;
+    height: 7vh;
+    overflow: hidden;
+    z-index: 10;
+    
+}
+.fixed_Backbtn{
+    position: fixed;
+    z-index: 2;
+    right: 9px;
+    top: 6px;
+}
+.FromHeader{
+    font-size:4.5vh;
+    font-weight: 700;
+}
+.Admin_form_code{
+    position: absolute;
+    top: 7.5vh;
+    width: 98%;
+    max-height: 1000vh;
+    left: 1%;
+    
+    overflow: hidden;
+
+}
+
+/*card details*/
+/*card*/
+.card{
+    height: 40vh;
+    border-radius: 10px 40% 10px 30%;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+    background-color: white;
+    box-shadow: 2px 2px 4px 2px rgba(0, 0, 0, 0.685);
+}
+.AdminIconBox{
+    width: 100%;
+    height: 60%;
+    background-color: rgba(0, 0, 0, 0.671);
+    display: flex;
+    border-radius: 10px 50% 10px 50%;
+    border: 2px solid black;
+}
+.AdminIconBox ion-icon{
+    font-size: 80px;
+    color: white;
+    margin: auto;
+}
+.AdminCardDetails{
+    width: 80%;
+    height: 30%;
+    margin: auto;
+    border-radius: 10px;
+}
+
+@media only screen and (max-width:770px){
+    .Admin-span{
+        display:none;
+    }
+
+}

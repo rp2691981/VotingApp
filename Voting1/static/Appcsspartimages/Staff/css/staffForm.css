@@ -1,0 +1,32 @@
+.staffbody{
+    background: rgba(224, 224, 224,0.2);
+    position: relative;
+}
+.StaffFormbody{
+    position: absolute;
+    top: 14vh;
+    width: 98%;
+    left: 1%;
+    max-height: 500vh;
+    overflow: hidden;
+}
+/*header style*/
+.Staffprofileheader{
+    top: 0;
+    position: absolute;
+    width: 100%;
+    height: 8vh;
+    background: linear-gradient(to right ,rgba(22, 243, 225, 0.829),rgb(142, 90, 240));
+}
+
+.bold_3{
+    font-size: 3.8vh;
+    font-weight: 800;
+    color: rgba(0, 0, 0, 0.6);
+}
+.bold1{
+    font-size: 3.4vh;
+    font-weight: 700;
+    color: rgba(0, 0, 0, 0.7);
+
+}
